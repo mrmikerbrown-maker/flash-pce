@@ -11,13 +11,15 @@
   :root { --navy: #071B35; --gold: #C4933E; --ivory: #FAF7F1; --grid: #DED8CF; --text: #59616A; --ink: #0E1620; --muted: #8A9098; --green: #2E7D6B; }
   * { box-sizing: border-box; }
   html, body { margin: 0; background: var(--ivory); color: var(--ink); font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; }
-  a.w { display: block; text-decoration: none; color: inherit; border: 1px solid var(--grid); border-top: 2px solid var(--gold);
+  .w { display: block; cursor: pointer; color: inherit; border: 1px solid var(--grid); border-top: 2px solid var(--gold);
         background: var(--ivory); padding: 14px 16px 12px; min-height: 100vh; }
   .top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
   h1 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; color: var(--navy); font-size: 22px; margin: 0; line-height: 1.1; }
   .badge { font-size: 10.5px; font-weight: bold; letter-spacing: .06em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; border: 1px solid; white-space: nowrap; }
   .final { color: var(--green); } .provisional { color: var(--gold); } .waiting { color: var(--muted); }
-  .m { color: var(--text); font-size: 12.5px; margin: 2px 0 10px; font-style: italic; font-family: "Cormorant Garamond", Georgia, serif; font-size: 15px; }
+  .by { font-size: 11px; color: var(--text); margin: 0 0 8px; }
+  .by a { color: var(--navy); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--gold); }
+  .m { color: var(--text); font-size: 12.5px; margin: 1px 0 2px; font-style: italic; font-family: "Cormorant Garamond", Georgia, serif; font-size: 15px; }
   .nums { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .k { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--text); font-weight: bold; }
   .v { font-family: "Cormorant Garamond", Georgia, serif; font-variant-numeric: lining-nums; font-weight: 600; color: var(--navy); font-size: 38px; line-height: 1.05; }
@@ -28,15 +30,16 @@
 </style>
 </head>
 <body>
-<a class="w" id="w" href="./" target="_blank" rel="noopener">
+<div class="w" id="w" onclick="if (!event.target.closest('.by a')) window.open('./', '_blank', 'noopener')">
   <div class="top"><h1>Flash PCE Nowcast</h1><span class="badge waiting" id="badge">&nbsp;</span></div>
   <div class="m" id="month">&nbsp;</div>
+  <div class="by">Produced by Michael Brown (<a href="https://x.com/mrmbrown" target="_blank" rel="noopener">@MrMBrown</a>)</div>
   <div class="nums">
     <div><div class="k">Core m/m</div><div class="v" id="core">&ndash;</div><div class="s" id="coreS"></div></div>
     <div><div class="k">Headline m/m</div><div class="v" id="head">&ndash;</div><div class="s" id="headS"></div></div>
   </div>
   <div class="foot"><span id="upd"></span><span>Full detail &rarr;</span></div>
-</a>
+</div>
 <script>
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 fetch('data.json', { cache: 'no-store' }).then(r => r.json()).then(d => {

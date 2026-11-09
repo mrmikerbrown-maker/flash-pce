@@ -25,6 +25,9 @@
   h1 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; color: var(--navy);
     font-size: clamp(34px, 6vw, 48px); margin: 10px 0 2px; line-height: 1.1; }
   .sub { color: var(--text); font-style: italic; font-family: "Cormorant Garamond", Georgia, serif; font-size: 19px; margin: 0; }
+  .by { color: var(--text); font-size: 14px; margin: 8px 0 0; }
+  .by a { color: var(--navy); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--gold); }
+  .by a:hover { color: var(--gold); }
   .rule { height: 1px; background: var(--gold); margin: 22px 0; opacity: .8; }
   .status { display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: center; align-items: center; color: var(--text); font-size: 14px; }
   .badge { font-weight: bold; letter-spacing: .06em; font-size: 12px; padding: 3px 10px; border-radius: 3px; border: 1px solid; text-transform: uppercase; }
@@ -82,6 +85,7 @@
   <header>
     <h1>Flash PCE Nowcast</h1>
     <p class="sub" id="sub">&nbsp;</p>
+    <p class="by">Produced by Michael Brown (<a href="https://x.com/mrmbrown" target="_blank" rel="noopener">@MrMBrown</a>)</p>
   </header>
   <div class="rule"></div>
   <div class="status" id="status"></div>
