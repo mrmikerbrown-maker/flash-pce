@@ -32,6 +32,7 @@ jobs:
         with:
           node-version: '22'
       - name: Run nowcast
+        id: run
         env:
           BEA_API_KEY: ${{ secrets.BEA_API_KEY }}
           BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
@@ -52,7 +53,7 @@ jobs:
             echo "Nothing changed."
           fi
       - name: Email the update
-        if: steps.publish.outputs.changed == 'true'
+        if: steps.publish.outputs.changed == 'true' && steps.run.outputs.email == 'true'
         env:
           SENDER: ${{ secrets.SENDER }}
           RECIPIENT: ${{ secrets.RECIPIENT }}

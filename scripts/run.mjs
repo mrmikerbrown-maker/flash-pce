@@ -133,6 +133,8 @@ async function main() {
     const hits = Object.entries(cal).filter(([, ds]) => ds.includes(today)).map(([k]) => k);
     if (!hits.length && !force) { console.log(`${today}: no CPI/PPI/PCE release today, nothing to do.`); return; }
     console.log(`${today}: release day (${hits.join(', ') || 'forced'})`);
+    // Email on CPI/PPI days (and manual runs), not on PCE-only days.
+    if (env.GITHUB_OUTPUT) fs.appendFileSync(env.GITHUB_OUTPUT, `email=${hits.some(h => h !== 'PCE') || force}\n`);
   }
   const y1 = new Date().getFullYear(), y0 = y1 - M.BACK_YEARS;
   let price, nom, bls;
