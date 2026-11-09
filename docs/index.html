@@ -58,6 +58,7 @@
   .bar.neg { border-radius: 3px 0 0 3px; }
   .bar.hl { background: var(--gold); }
   .chart { position: relative; }
+  .ct { font-weight: bold; color: var(--navy); font-size: 14px; margin-bottom: 4px; }
   .chart svg { display: block; width: 100%; height: auto; overflow: visible; }
   .legend { display: flex; gap: 18px; font-size: 13px; color: var(--text); margin: 0 0 6px; flex-wrap: wrap; }
   .legend i { display: inline-block; width: 18px; height: 2px; vertical-align: middle; margin-right: 6px; }
@@ -103,6 +104,17 @@
       <div class="legend"><span><i style="background:var(--navy)"></i>Actual core PCE</span><span><i style="background:var(--gold)"></i>Flash estimate</span></div>
       <div class="chart" id="btChart"></div>
       <div class="stats" id="btStats"></div>
+    </div>
+    <p class="note" style="margin-top:22px">Year on year %: the estimate is the y/y implied by each month's flash m/m on top of the previous month's published level</p>
+    <div class="grid2">
+      <div class="card"><div class="ct">Core PCE y/y</div>
+        <div class="legend"><span><i style="background:var(--navy)"></i>Actual</span><span><i style="background:var(--gold)"></i>Flash estimate</span></div>
+        <div class="chart" id="yyCore"></div></div>
+      <div class="card"><div class="ct">Headline PCE y/y</div>
+        <div class="legend"><span><i style="background:var(--navy)"></i>Actual</span><span><i style="background:var(--gold)"></i>Flash estimate</span></div>
+        <div class="chart" id="yyHead"></div></div>
+    </div>
+    <div class="card" style="margin-top:16px">
       <details><summary>Show the numbers</summary><div class="scroll"><table id="btTable"></table></div></details>
     </div>
   </section>
@@ -185,7 +197,11 @@ function render(d, rec) {
     `<span>Core: average miss <b>${fmt(st.coreMae, 1)}bp</b>, RMSE <b>${fmt(st.coreRmse, 1)}bp</b></span>`
     + `<span>Headline: average miss <b>${fmt(st.headMae, 1)}bp</b>, RMSE <b>${fmt(st.headRmse, 1)}bp</b></span>`
     + `<span class="hide-sm">Chicago Fed reference: 3.75bp core</span>`;
-  lineChart(document.getElementById('btChart'), bt.months);
+  lineChart(document.getElementById('btChart'), bt.months, 'core', 'aCore', 'mm');
+  if (bt.months.some(m => m.ayCore != null)) {
+    lineChart(document.getElementById('yyCore'), bt.months, 'yCore', 'ayCore', 'yy');
+    lineChart(document.getElementById('yyHead'), bt.months, 'yHead', 'ayHead', 'yy');
+  }
   document.getElementById('btTable').innerHTML =
     '<tr><th>Month</th><th class="n">Core est.</th><th class="n">Core actual</th><th class="n">Miss bp</th><th class="n">Headline est.</th><th class="n">Headline actual</th><th class="n">Miss bp</th></tr>'
     + bt.months.slice().reverse().map(m => `<tr><td>${mShort(m.m)}${m.excluded ? ' *' : ''}</td><td class="n">${fmt(m.core, 2)}</td><td class="n">${fmt(m.aCore, 2)}</td><td class="n">${sgn((m.core - m.aCore) * 100)}</td><td class="n">${fmt(m.head, 2)}</td><td class="n">${fmt(m.aHead, 2)}</td><td class="n">${sgn((m.head - m.aHead) * 100)}</td></tr>`).join('')
@@ -213,24 +229,27 @@ function render(d, rec) {
   document.getElementById('foot').innerHTML = 'Data: BEA, BLS. Method: Chicago Fed Letter 529 (Sep 2026). Last BEA release covers ' + mName(d.lastPublished) + '.';
 }
 
-function lineChart(el, months) {
+function lineChart(el, months, ek, ak, kind) {
   const W = Math.max(300, Math.round(el.clientWidth || 960)), H = W < 600 ? 240 : 320, L = 40, R = 10, T = 12, B = 30;
-  const pts = months.filter(m => m.aCore != null);
-  const ys = pts.flatMap(m => [m.core, m.aCore]);
-  let lo = Math.floor(Math.min(0, ...ys) * 10) / 10, hi = Math.ceil(Math.max(...ys) * 10) / 10;
+  const pts = months.filter(m => m[ak] != null && m[ek] != null);
+  const ys = pts.flatMap(m => [m[ek], m[ak]]);
+  const rawLo = kind === 'mm' ? Math.min(0, ...ys) : Math.min(...ys), rawHi = Math.max(...ys);
+  const gstep = [0.1, 0.2, 0.25, 0.5, 1].find(s => (rawHi - rawLo) / s <= 6) || 1;
+  let lo = Math.floor(rawLo / gstep) * gstep, hi = Math.ceil(rawHi / gstep) * gstep;
+  if (hi - lo < gstep) hi = lo + gstep;
   const x = i => L + (W - L - R) * (pts.length === 1 ? .5 : i / (pts.length - 1));
   const y = v => T + (H - T - B) * (1 - (v - lo) / (hi - lo));
   let g = '';
-  for (let v = lo; v <= hi + 1e-9; v += 0.1) {
+  for (let v = lo; v <= hi + 1e-9; v += gstep) {
     g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="${Math.abs(v) < 1e-9 ? '#59616A' : '#DED8CF'}" stroke-width="${Math.abs(v) < 1e-9 ? 1.2 : .8}"/>`;
-    g += `<text x="${L - 8}" y="${y(v) + 4}" text-anchor="end" font-size="12" fill="#59616A">${v.toFixed(1)}</text>`;
+    g += `<text x="${L - 8}" y="${y(v) + 4}" text-anchor="end" font-size="12" fill="#59616A">${v.toFixed(gstep === 0.25 ? 2 : 1)}</text>`;
   }
-  const step = Math.ceil(pts.length / (W < 600 ? 4 : 8));
+  const step = Math.ceil(pts.length / (W < 600 ? 4 : (kind === 'yy' ? 5 : 8)));
   pts.forEach((m, i) => { if (i % step === 0 || i === pts.length - 1) g += `<text x="${x(i)}" y="${H - 10}" text-anchor="middle" font-size="12" fill="#59616A">${mShort(m.m)}</text>`; });
   const path = k => pts.map((m, i) => (i ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(m[k]).toFixed(1)).join(' ');
-  g += `<path d="${path('aCore')}" fill="none" stroke="#071B35" stroke-width="2.2"/>`;
-  g += `<path d="${path('core')}" fill="none" stroke="#C4933E" stroke-width="2.2"/>`;
-  pts.forEach((m, i) => { g += `<circle cx="${x(i)}" cy="${y(m.core)}" r="4" fill="#C4933E" stroke="#fff" stroke-width="2"/>`; });
+  g += `<path d="${path(ak)}" fill="none" stroke="#071B35" stroke-width="2.2"/>`;
+  g += `<path d="${path(ek)}" fill="none" stroke="#C4933E" stroke-width="2.2"/>`;
+  pts.forEach((m, i) => { g += `<circle cx="${x(i)}" cy="${y(m[ek])}" r="4" fill="#C4933E" stroke="#fff" stroke-width="2"/>`; });
   g += `<line id="xh" y1="${T}" y2="${H - B}" stroke="#59616A" stroke-width="1" stroke-dasharray="3 3" opacity="0"/>`;
   el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Flash estimate vs actual core PCE, monthly">${g}<rect x="${L}" y="${T}" width="${W - L - R}" height="${H - T - B}" fill="transparent" id="hit"/></svg><div class="tip" id="tip"></div>`;
   const svg = el.querySelector('svg'), tip = el.querySelector('#tip'), xh = el.querySelector('#xh');
@@ -238,7 +257,7 @@ function lineChart(el, months) {
     const rect = svg.getBoundingClientRect(), px = (ev.clientX - rect.left) / rect.width * W;
     const i = Math.max(0, Math.min(pts.length - 1, Math.round((px - L) / (W - L - R) * (pts.length - 1)))), m = pts[i];
     xh.setAttribute('x1', x(i)); xh.setAttribute('x2', x(i)); xh.setAttribute('opacity', 1);
-    tip.innerHTML = `<b>${mName(m.m)}</b><br>Actual ${fmt(m.aCore)}% · Estimate ${fmt(m.core)}%<br>Miss ${sgn((m.core - m.aCore) * 100)}bp${m.excluded ? ' (shutdown)' : ''}`;
+    tip.innerHTML = `<b>${mName(m.m)}</b><br>Actual ${fmt(m[ak])}% · Estimate ${fmt(m[ek])}%<br>Miss ${sgn((m[ek] - m[ak]) * 100)}bp${m.excluded ? ' (shutdown)' : ''}`;
     tip.style.opacity = 1;
     const tx = x(i) / W * rect.width;
     tip.style.left = Math.min(Math.max(tx - tip.offsetWidth / 2, 0), rect.width - tip.offsetWidth) + 'px';

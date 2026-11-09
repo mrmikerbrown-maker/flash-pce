@@ -77,6 +77,13 @@ function buildPayload(res, cal, failed) {
     return (p == null || b == null) ? null : r((p * (1 + mom / 100) / b - 1) * 100, 2);
   };
   const ann = mom => r(((1 + mom / 100) ** 12 - 1) * 100, 2);
+  // y/y: implied by an estimated m/m (est != null) on top of last month's published level, or actual
+  const yy = (idx, m, est) => {
+    const p = idx[M.ymAdd_(m, -1)], c = idx[m], base = idx[M.ymAdd_(m, -12)];
+    if (base == null) return null;
+    if (est == null) return c == null ? null : r((c / base - 1) * 100, 2);
+    return p == null ? null : r((p * (1 + est / 100) / base - 1) * 100, 2);
+  };
   const st = M.btStats_(res.bt);
   const cov = {}, groups = {};
   now.est.forEach(e => {
@@ -102,6 +109,8 @@ function buildPayload(res, cal, failed) {
       stats: { headMae: r(st.hMae, 2), headRmse: r(st.hRmse, 2), coreMae: r(st.cMae, 2), coreRmse: r(st.cRmse, 2),
                headBias: r(st.hBias, 2), coreBias: r(st.cBias, 2) },
       months: res.bt.map(b => ({ m: b.t, head: r(b.head, 3), aHead: r(b.aHead, 3), core: r(b.core, 3), aCore: r(b.aCore, 3),
+                                 yHead: yy(res.pceIdx, b.t, b.head), ayHead: yy(res.pceIdx, b.t, null),
+                                 yCore: yy(res.coreIdx, b.t, b.core), ayCore: yy(res.coreIdx, b.t, null),
                                  excluded: M.SKIP.indexOf(b.t) >= 0 }))
     },
     nextReleases: { CPI: next('CPI'), PPI: next('PPI'), PCE: next('PCE') },
