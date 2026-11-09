@@ -39,6 +39,7 @@ jobs:
           FORCE: ${{ github.event_name == 'workflow_dispatch' && inputs.force && '1' || '0' }}
         run: node scripts/run.mjs
       - name: Publish if changed
+        id: publish
         run: |
           if [ -n "$(git status --porcelain docs)" ]; then
             git config user.name "flash-pce-bot"
@@ -46,6 +47,14 @@ jobs:
             git add docs
             git commit -m "Update Flash PCE estimate"
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "Nothing changed."
           fi
+      - name: Email the update
+        if: steps.publish.outputs.changed == 'true'
+        env:
+          SENDER: ${{ secrets.SENDER }}
+          RECIPIENT: ${{ secrets.RECIPIENT }}
+          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
+        run: python3 scripts/send_email.py

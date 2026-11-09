@@ -12,3 +12,6 @@ A mid-month nowcast of US PCE and core PCE inflation, following the Chicago Fed'
   if the estimate changed. Run it by hand from the Actions tab ("Run workflow") at any time.
 
 Secrets (Settings > Secrets and variables > Actions): `BEA_API_KEY`, `BLS_API_KEY`, `FRED_API_KEY`.
+
+Email after each update (optional): secrets `SENDER` (Gmail address), `RECIPIENT`, `APP_PASSWORD`
+(Gmail app password), the same setup as the market alert emails.
