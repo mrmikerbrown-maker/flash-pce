@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flash PCE widget</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+<style>
+  :root { --navy: #071B35; --gold: #C4933E; --ivory: #FAF7F1; --grid: #DED8CF; --text: #59616A; --ink: #0E1620; --muted: #8A9098; --green: #2E7D6B; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--ivory); color: var(--ink); font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; }
+  a.w { display: block; text-decoration: none; color: inherit; border: 1px solid var(--grid); border-top: 2px solid var(--gold);
+        background: var(--ivory); padding: 14px 16px 12px; min-height: 100vh; }
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  h1 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; color: var(--navy); font-size: 22px; margin: 0; line-height: 1.1; }
+  .badge { font-size: 10.5px; font-weight: bold; letter-spacing: .06em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; border: 1px solid; white-space: nowrap; }
+  .final { color: var(--green); } .provisional { color: var(--gold); } .waiting { color: var(--muted); }
+  .m { color: var(--text); font-size: 12.5px; margin: 2px 0 10px; font-style: italic; font-family: "Cormorant Garamond", Georgia, serif; font-size: 15px; }
+  .nums { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .k { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--text); font-weight: bold; }
+  .v { font-family: "Cormorant Garamond", Georgia, serif; font-variant-numeric: lining-nums; font-weight: 600; color: var(--navy); font-size: 38px; line-height: 1.05; }
+  .v small { font-family: Arial, sans-serif; font-size: 13px; color: var(--text); font-weight: normal; margin-left: 3px; }
+  .s { font-size: 12px; color: var(--text); }
+  .foot { display: flex; justify-content: space-between; gap: 8px; margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--grid); font-size: 11.5px; color: var(--muted); }
+  .foot span:last-child { color: var(--navy); font-weight: bold; white-space: nowrap; }
+</style>
+</head>
+<body>
+<a class="w" id="w" href="./" target="_blank" rel="noopener">
+  <div class="top"><h1>Flash PCE Nowcast</h1><span class="badge waiting" id="badge">&nbsp;</span></div>
+  <div class="m" id="month">&nbsp;</div>
+  <div class="nums">
+    <div><div class="k">Core m/m</div><div class="v" id="core">&ndash;</div><div class="s" id="coreS"></div></div>
+    <div><div class="k">Headline m/m</div><div class="v" id="head">&ndash;</div><div class="s" id="headS"></div></div>
+  </div>
+  <div class="foot"><span id="upd"></span><span>Full detail &rarr;</span></div>
+</a>
+<script>
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+fetch('data.json', { cache: 'no-store' }).then(r => r.json()).then(d => {
+  const b = document.getElementById('badge');
+  b.textContent = { final: 'Final', provisional: 'Provisional', waiting: 'Waiting for data' }[d.status];
+  b.className = 'badge ' + d.status;
+  const inputs = d.cpiIn && d.ppiIn ? 'CPI and PPI in' : d.cpiIn ? 'CPI in, PPI to come' : d.ppiIn ? 'PPI in, CPI to come' : 'before CPI and PPI';
+  document.getElementById('month').textContent = MONTHS[+d.target.slice(5, 7) - 1] + ' ' + d.target.slice(0, 4) + ' PCE · ' + inputs;
+  const put = (k, id) => {
+    document.getElementById(id).innerHTML = d[k].mom.toFixed(2) + '%';
+    document.getElementById(id + 'S').textContent = d[k].ann.toFixed(1) + '% ann. · ' + d[k].yoy.toFixed(2) + '% y/y';
+  };
+  put('core', 'core'); put('headline', 'head');
+  if (d.updated) document.getElementById('upd').textContent = 'Updated ' + new Date(d.updated).toLocaleString('en-GB',
+    { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/London' }) + ' UK';
+}).catch(() => { document.getElementById('month').textContent = 'Could not load the latest estimate.'; });
+</script>
+</body>
+</html>
