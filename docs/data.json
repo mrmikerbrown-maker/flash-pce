@@ -2884,10 +2884,10 @@
   ]
  },
  "nextReleases": {
-  "CPI": null,
-  "PPI": null,
-  "PCE": null
+  "CPI": "2026-11-10",
+  "PPI": "2026-11-13",
+  "PCE": "2026-11-25"
  },
  "warnings": [],
- "updated": "2026-11-09T14:55:51.529Z"
+ "updated": "2026-11-09T15:01:03.441Z"
 }
