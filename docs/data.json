@@ -1,29 +1,30 @@
 {
  "target": "2026-10",
  "lastPublished": "2026-09",
- "status": "waiting",
- "cpiIn": false,
+ "status": "provisional",
+ "cpiIn": true,
  "ppiIn": false,
  "headline": {
-  "mom": 0.303,
-  "ann": 3.7,
-  "yoy": 3.81
+  "mom": 0.366,
+  "ann": 4.48,
+  "yoy": 3.87
  },
  "core": {
-  "mom": 0.253,
-  "ann": 3.08,
-  "yoy": 3.2
+  "mom": 0.347,
+  "ann": 4.25,
+  "yoy": 3.3
  },
  "coverage": {
-  "own history": 95.3,
+  "CPI": 67,
+  "own history": 28.3,
   "earnings": 4.7
  },
  "groups": {
-  "Core goods": 2,
-  "Food": 0.6,
-  "Energy": 7.3,
-  "Housing": 4.7,
-  "Core services ex housing": 15.7
+  "Core goods": 8.2,
+  "Food": 2.5,
+  "Energy": 3.2,
+  "Housing": 4.5,
+  "Core services ex housing": 18.4
  },
  "lines": [
   {
@@ -32,11 +33,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.123,
-   "mom": 0.035,
-   "headBp": 0,
-   "coreBp": 0,
-   "how": "own history",
-   "method": "avg6"
+   "mom": 0.285,
+   "headBp": 0.04,
+   "coreBp": 0.04,
+   "how": "CPI",
+   "method": "C:SS45011/SA"
   },
   {
    "line": 8,
@@ -44,11 +45,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.073,
-   "mom": 0.035,
-   "headBp": 0,
-   "coreBp": 0,
-   "how": "own history",
-   "method": "avg6"
+   "mom": 0.285,
+   "headBp": 0.02,
+   "coreBp": 0.02,
+   "how": "CPI",
+   "method": "C:SS45011/SA"
   },
   {
    "line": 10,
@@ -56,11 +57,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 1.33,
-   "mom": 0.041,
-   "headBp": 0.05,
-   "coreBp": 0.06,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 0.183,
+   "headBp": 0.24,
+   "coreBp": 0.27,
+   "how": "CPI",
+   "method": "C:SS45021/SA"
   },
   {
    "line": 11,
@@ -68,11 +69,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.35,
-   "mom": 0.041,
-   "headBp": 0.01,
-   "coreBp": 0.02,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 0.183,
+   "headBp": 0.06,
+   "coreBp": 0.07,
+   "how": "CPI",
+   "method": "C:SS45021/SA"
   },
   {
    "line": 14,
@@ -80,11 +81,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.055,
-   "mom": 0.151,
-   "headBp": 0.01,
-   "coreBp": 0.01,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -1.224,
+   "headBp": -0.07,
+   "coreBp": -0.08,
+   "how": "CPI",
+   "method": "C:SETA02/SA"
   },
   {
    "line": 15,
@@ -92,11 +93,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.161,
-   "mom": 0.151,
-   "headBp": 0.02,
-   "coreBp": 0.03,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -1.224,
+   "headBp": -0.2,
+   "coreBp": -0.22,
+   "how": "CPI",
+   "method": "C:SETA02/SA"
   },
   {
    "line": 16,
@@ -116,11 +117,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.564,
-   "mom": 0.151,
-   "headBp": 0.09,
-   "coreBp": 0.1,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -1.224,
+   "headBp": -0.69,
+   "coreBp": -0.78,
+   "how": "CPI",
+   "method": "C:SETA02/SA"
   },
   {
    "line": 19,
@@ -128,11 +129,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.274,
-   "mom": 0.151,
-   "headBp": 0.04,
-   "coreBp": 0.05,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -1.224,
+   "headBp": -0.34,
+   "coreBp": -0.38,
+   "how": "CPI",
+   "method": "C:SETA02/SA"
   },
   {
    "line": 21,
@@ -140,11 +141,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.265,
-   "mom": -0.049,
-   "headBp": -0.01,
-   "coreBp": -0.01,
-   "how": "own history",
-   "method": "avg6"
+   "mom": 0.283,
+   "headBp": 0.07,
+   "coreBp": 0.08,
+   "how": "CPI",
+   "method": "C:SETC01/SA"
   },
   {
    "line": 22,
@@ -152,11 +153,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.359,
-   "mom": 0.129,
-   "headBp": 0.05,
-   "coreBp": 0.05,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -0.297,
+   "headBp": -0.11,
+   "coreBp": -0.12,
+   "how": "CPI",
+   "method": "C:SETC02/SA"
   },
   {
    "line": 25,
@@ -164,11 +165,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.771,
-   "mom": -0.39,
-   "headBp": -0.3,
-   "coreBp": -0.34,
-   "how": "own history",
-   "method": "avg6"
+   "mom": 1.19,
+   "headBp": 0.92,
+   "coreBp": 1.03,
+   "how": "CPI",
+   "method": "C:SEHJ/SA+w"
   },
   {
    "line": 26,
@@ -176,11 +177,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.311,
-   "mom": -0.085,
-   "headBp": -0.03,
-   "coreBp": -0.03,
-   "how": "own history",
-   "method": "avg12"
+   "mom": -0.479,
+   "headBp": -0.15,
+   "coreBp": -0.17,
+   "how": "CPI",
+   "method": "C:SEHL01/SA"
   },
   {
    "line": 27,
@@ -188,11 +189,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.136,
-   "mom": -0.054,
-   "headBp": -0.01,
-   "coreBp": -0.01,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 0.352,
+   "headBp": 0.05,
+   "coreBp": 0.05,
+   "how": "CPI",
+   "method": "C:SEHH01/SA"
   },
   {
    "line": 28,
@@ -200,11 +201,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.159,
-   "mom": 0.24,
-   "headBp": 0.04,
-   "coreBp": 0.04,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -0.85,
+   "headBp": -0.14,
+   "coreBp": -0.15,
+   "how": "CPI",
+   "method": "C:SEHH02/SA"
   },
   {
    "line": 30,
@@ -212,11 +213,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.37,
-   "mom": -0.182,
-   "headBp": -0.07,
-   "coreBp": -0.08,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 1.375,
+   "headBp": 0.51,
+   "coreBp": 0.57,
+   "how": "CPI",
+   "method": "C:SEHK01/SA"
   },
   {
    "line": 31,
@@ -224,11 +225,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.058,
-   "mom": 0.109,
-   "headBp": 0.01,
-   "coreBp": 0.01,
-   "how": "own history",
-   "method": "avg6"
+   "mom": 1.223,
+   "headBp": 0.07,
+   "coreBp": 0.08,
+   "how": "CPI",
+   "method": "C:SEHK02/SA"
   },
   {
    "line": 33,
@@ -236,11 +237,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.149,
-   "mom": 0.659,
-   "headBp": 0.1,
-   "coreBp": 0.11,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 1.277,
+   "headBp": 0.19,
+   "coreBp": 0.21,
+   "how": "CPI",
+   "method": "C:SEHL03/SA"
   },
   {
    "line": 34,
@@ -248,11 +249,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.145,
-   "mom": -0.085,
-   "headBp": -0.01,
-   "coreBp": -0.01,
-   "how": "own history",
-   "method": "avg6"
+   "mom": 0.575,
+   "headBp": 0.08,
+   "coreBp": 0.09,
+   "how": "CPI",
+   "method": "C:SEHL04/SA"
   },
   {
    "line": 36,
@@ -260,11 +261,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.244,
-   "mom": -0.13,
-   "headBp": -0.03,
-   "coreBp": -0.04,
-   "how": "own history",
-   "method": "avg6"
+   "mom": 1.436,
+   "headBp": 0.35,
+   "coreBp": 0.39,
+   "how": "CPI",
+   "method": "C:SEHM01/SA"
   },
   {
    "line": 37,
@@ -272,11 +273,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.049,
-   "mom": -0.158,
-   "headBp": -0.01,
-   "coreBp": -0.01,
-   "how": "own history",
-   "method": "avg6"
+   "mom": -0.441,
+   "headBp": -0.02,
+   "coreBp": -0.02,
+   "how": "CPI",
+   "method": "C:SEHM02/SA"
   },
   {
    "line": 41,
@@ -284,11 +285,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.173,
-   "mom": -0.327,
-   "headBp": -0.06,
-   "coreBp": -0.06,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 3.311,
+   "headBp": 0.57,
+   "coreBp": 0.64,
+   "how": "CPI",
+   "method": "C:SERA01/SA+w"
   },
   {
    "line": 42,
@@ -296,11 +297,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.053,
-   "mom": 0.472,
-   "headBp": 0.02,
-   "coreBp": 0.03,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 6.303,
+   "headBp": 0.33,
+   "coreBp": 0.37,
+   "how": "CPI",
+   "method": "C:SERA03/SA+w"
   },
   {
    "line": 43,
@@ -308,11 +309,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.146,
-   "mom": 0.498,
-   "headBp": 0.07,
-   "coreBp": 0.08,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -0.483,
+   "headBp": -0.07,
+   "coreBp": -0.08,
+   "how": "CPI",
+   "method": "C:SERA05/SA+w"
   },
   {
    "line": 45,
@@ -320,11 +321,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.013,
-   "mom": 0.438,
-   "headBp": 0.01,
-   "coreBp": 0.01,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.32,
+   "headBp": 0,
+   "coreBp": 0,
+   "how": "CPI",
+   "method": "C:SERA06/SA"
   },
   {
    "line": 46,
@@ -332,11 +333,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.066,
-   "mom": 0.023,
-   "headBp": 0,
-   "coreBp": 0,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -0.228,
+   "headBp": -0.02,
+   "coreBp": -0.02,
+   "how": "CPI",
+   "method": "C:SERA04/SA"
   },
   {
    "line": 47,
@@ -344,11 +345,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.026,
-   "mom": 0.193,
-   "headBp": 0.01,
-   "coreBp": 0.01,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -1.149,
+   "headBp": -0.03,
+   "coreBp": -0.03,
+   "how": "CPI",
+   "method": "C:SERD01/SA"
   },
   {
    "line": 49,
@@ -356,11 +357,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.513,
-   "mom": 0.791,
-   "headBp": 0.41,
-   "coreBp": 0.46,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 0.55,
+   "headBp": 0.28,
+   "coreBp": 0.32,
+   "how": "CPI",
+   "method": "C:SEEE01/SA+w"
   },
   {
    "line": 50,
@@ -368,11 +369,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 1.116,
-   "mom": 0.531,
-   "headBp": 0.59,
-   "coreBp": 0.67,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -1.53,
+   "headBp": -1.71,
+   "coreBp": -1.92,
+   "how": "CPI",
+   "method": "C:SEEE02/SA"
   },
   {
    "line": 51,
@@ -380,11 +381,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.002,
-   "mom": -0.882,
+   "mom": 0.511,
    "headBp": 0,
    "coreBp": 0,
-   "how": "own history",
-   "method": "avg24"
+   "how": "CPI",
+   "method": "C:SEEE04/SA"
   },
   {
    "line": 52,
@@ -392,11 +393,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.618,
-   "mom": 0.115,
-   "headBp": 0.07,
-   "coreBp": 0.08,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -0.034,
+   "headBp": -0.02,
+   "coreBp": -0.02,
+   "how": "CPI",
+   "method": "C:SERC02/SA+w"
   },
   {
    "line": 54,
@@ -416,11 +417,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.034,
-   "mom": 0.508,
-   "headBp": 0.02,
-   "coreBp": 0.02,
-   "how": "own history",
-   "method": "avg12"
+   "mom": -0.75,
+   "headBp": -0.03,
+   "coreBp": -0.03,
+   "how": "CPI",
+   "method": "C:SERC01/SA+w"
   },
   {
    "line": 57,
@@ -428,11 +429,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.178,
-   "mom": 0.508,
-   "headBp": 0.09,
-   "coreBp": 0.1,
-   "how": "own history",
-   "method": "avg12"
+   "mom": -0.75,
+   "headBp": -0.13,
+   "coreBp": -0.15,
+   "how": "CPI",
+   "method": "C:SERC01/SA"
   },
   {
    "line": 58,
@@ -440,11 +441,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.012,
-   "mom": 0.508,
-   "headBp": 0.01,
-   "coreBp": 0.01,
-   "how": "own history",
-   "method": "avg12"
+   "mom": -0.75,
+   "headBp": -0.01,
+   "coreBp": -0.01,
+   "how": "CPI",
+   "method": "C:SERC01/SA"
   },
   {
    "line": 59,
@@ -452,11 +453,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.153,
-   "mom": 0.508,
-   "headBp": 0.08,
-   "coreBp": 0.09,
-   "how": "own history",
-   "method": "avg12"
+   "mom": -0.75,
+   "headBp": -0.11,
+   "coreBp": -0.13,
+   "how": "CPI",
+   "method": "C:SERC01/SA+w"
   },
   {
    "line": 60,
@@ -464,11 +465,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.164,
-   "mom": -0.069,
-   "headBp": -0.01,
-   "coreBp": -0.01,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -1.248,
+   "headBp": -0.2,
+   "coreBp": -0.23,
+   "how": "CPI",
+   "method": "C:SERG02/SA"
   },
   {
    "line": 61,
@@ -476,11 +477,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.044,
-   "mom": 0.242,
+   "mom": 0.322,
    "headBp": 0.01,
-   "coreBp": 0.01,
-   "how": "own history",
-   "method": "avg12"
+   "coreBp": 0.02,
+   "how": "CPI",
+   "method": "C:SERE03/SA"
   },
   {
    "line": 64,
@@ -488,11 +489,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.415,
-   "mom": 0.575,
-   "headBp": 0.24,
-   "coreBp": 0.27,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 1.856,
+   "headBp": 0.77,
+   "coreBp": 0.87,
+   "how": "CPI",
+   "method": "C:SEAG02/SA"
   },
   {
    "line": 65,
@@ -500,11 +501,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.086,
-   "mom": 0.535,
-   "headBp": 0.05,
-   "coreBp": 0.05,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -0.605,
+   "headBp": -0.05,
+   "coreBp": -0.06,
+   "how": "CPI",
+   "method": "C:SEAG01/SA+w"
   },
   {
    "line": 67,
@@ -512,11 +513,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.248,
-   "mom": -0.021,
-   "headBp": -0.01,
-   "coreBp": -0.01,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 1.45,
+   "headBp": 0.36,
+   "coreBp": 0.4,
+   "how": "CPI",
+   "method": "C:SEMG/SA"
   },
   {
    "line": 68,
@@ -524,11 +525,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.227,
-   "mom": 0.088,
-   "headBp": 0.02,
-   "coreBp": 0.02,
-   "how": "own history",
-   "method": "avg12"
+   "mom": -0.01,
+   "headBp": 0,
+   "coreBp": 0,
+   "how": "CPI",
+   "method": "C:SEMC03/SA"
   },
   {
    "line": 69,
@@ -536,11 +537,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.045,
-   "mom": 0.349,
-   "headBp": 0.02,
-   "coreBp": 0.02,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 1.542,
+   "headBp": 0.07,
+   "coreBp": 0.08,
+   "how": "CPI",
+   "method": "C:SEEA/SA"
   },
   {
    "line": 70,
@@ -548,11 +549,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.249,
-   "mom": 0.247,
+   "mom": 0.221,
    "headBp": 0.06,
-   "coreBp": 0.07,
-   "how": "own history",
-   "method": "avg12"
+   "coreBp": 0.06,
+   "how": "CPI",
+   "method": "C:SEGE/SA"
   },
   {
    "line": 71,
@@ -560,11 +561,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.174,
-   "mom": -0.882,
-   "headBp": -0.15,
-   "coreBp": -0.17,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.511,
+   "headBp": 0.09,
+   "coreBp": 0.1,
+   "how": "CPI",
+   "method": "C:SEEE04/SA"
   },
   {
    "line": 77,
@@ -572,11 +573,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.371,
-   "mom": 0.264,
-   "headBp": 0.1,
+   "mom": -0.794,
+   "headBp": -0.29,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg12"
+   "how": "CPI",
+   "method": "C:SEFA/SA+w"
   },
   {
    "line": 78,
@@ -584,11 +585,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.593,
-   "mom": 0.14,
-   "headBp": 0.08,
+   "mom": 0.153,
+   "headBp": 0.09,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg12"
+   "how": "CPI",
+   "method": "C:SEFB/SA+w"
   },
   {
    "line": 80,
@@ -596,11 +597,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.302,
-   "mom": -0.101,
-   "headBp": -0.03,
+   "mom": 0.916,
+   "headBp": 0.28,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg6"
+   "how": "CPI",
+   "method": "C:SEFC/SA"
   },
   {
    "line": 81,
@@ -608,11 +609,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.225,
-   "mom": 0.038,
-   "headBp": 0.01,
+   "mom": 0.107,
+   "headBp": 0.02,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg24"
+   "how": "CPI",
+   "method": "C:SEFD/SA"
   },
   {
    "line": 82,
@@ -620,11 +621,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.225,
-   "mom": -0.119,
-   "headBp": -0.03,
+   "mom": 0.3,
+   "headBp": 0.07,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg12"
+   "how": "CPI",
+   "method": "C:SEFE/SA"
   },
   {
    "line": 83,
@@ -632,11 +633,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.36,
-   "mom": 0.096,
-   "headBp": 0.03,
+   "mom": 0.826,
+   "headBp": 0.3,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg12"
+   "how": "CPI",
+   "method": "C:SEFF/SA"
   },
   {
    "line": 84,
@@ -644,11 +645,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.107,
-   "mom": 0.367,
-   "headBp": 0.04,
+   "mom": 0.091,
+   "headBp": 0.01,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg24"
+   "how": "CPI",
+   "method": "C:SEFG/SA"
   },
   {
    "line": 86,
@@ -656,11 +657,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.145,
-   "mom": 0.186,
-   "headBp": 0.03,
+   "mom": -0.268,
+   "headBp": -0.04,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg24"
+   "how": "CPI",
+   "method": "C:SEFJ01/SA"
   },
   {
    "line": 87,
@@ -668,11 +669,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.338,
-   "mom": -0.135,
-   "headBp": -0.05,
+   "mom": 0.822,
+   "headBp": 0.28,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg12"
+   "how": "CPI",
+   "method": "C:SEFJ/SA+w"
   },
   {
    "line": 88,
@@ -680,11 +681,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.079,
-   "mom": 0.379,
-   "headBp": 0.03,
+   "mom": 0.583,
+   "headBp": 0.05,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg3"
+   "how": "CPI",
+   "method": "C:SEFH/SA"
   },
   {
    "line": 89,
@@ -692,11 +693,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.147,
-   "mom": -0.058,
-   "headBp": -0.01,
+   "mom": 0.57,
+   "headBp": 0.08,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg12"
+   "how": "CPI",
+   "method": "C:SEFS/SA"
   },
   {
    "line": 91,
@@ -704,11 +705,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.287,
-   "mom": 0.193,
-   "headBp": 0.06,
+   "mom": -0.355,
+   "headBp": -0.1,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg24"
+   "how": "CPI",
+   "method": "C:SEFK/SA+w"
   },
   {
    "line": 92,
@@ -716,11 +717,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.317,
-   "mom": 0.239,
-   "headBp": 0.08,
+   "mom": 2.162,
+   "headBp": 0.69,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg24"
+   "how": "CPI",
+   "method": "C:SEFL/SA"
   },
   {
    "line": 93,
@@ -728,11 +729,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.222,
-   "mom": 0.229,
-   "headBp": 0.05,
+   "mom": -0.25,
+   "headBp": -0.06,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg12"
+   "how": "CPI",
+   "method": "C:SEFM/SA"
   },
   {
    "line": 94,
@@ -740,11 +741,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.361,
-   "mom": 0.122,
-   "headBp": 0.04,
+   "mom": 0.595,
+   "headBp": 0.21,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg6"
+   "how": "CPI",
+   "method": "C:SEFR/SA"
   },
   {
    "line": 95,
@@ -752,11 +753,11 @@
    "group": "Food",
    "core": false,
    "weight": 1.168,
-   "mom": -0.013,
-   "headBp": -0.02,
+   "mom": 0.845,
+   "headBp": 0.99,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg6"
+   "how": "CPI",
+   "method": "C:SEFT/SA+w"
   },
   {
    "line": 97,
@@ -764,11 +765,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.126,
-   "mom": 0.204,
-   "headBp": 0.03,
+   "mom": -2.359,
+   "headBp": -0.3,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg6"
+   "how": "CPI",
+   "method": "C:SEFP/SA"
   },
   {
    "line": 98,
@@ -776,11 +777,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.547,
-   "mom": 0.277,
-   "headBp": 0.15,
+   "mom": 0.822,
+   "headBp": 0.45,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg12"
+   "how": "CPI",
+   "method": "C:SEFN/SA"
   },
   {
    "line": 100,
@@ -788,11 +789,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.254,
-   "mom": -0.091,
-   "headBp": -0.02,
+   "mom": -0.929,
+   "headBp": -0.24,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg6"
+   "how": "CPI",
+   "method": "C:SEFW02/SA"
   },
   {
    "line": 101,
@@ -800,11 +801,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.336,
-   "mom": -0.054,
-   "headBp": -0.02,
+   "mom": 0.008,
+   "headBp": 0,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg12"
+   "how": "CPI",
+   "method": "C:SEFW03/SA"
   },
   {
    "line": 102,
@@ -812,11 +813,11 @@
    "group": "Food",
    "core": false,
    "weight": 0.487,
-   "mom": 0.131,
+   "mom": 0.115,
    "headBp": 0.06,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg24"
+   "how": "CPI",
+   "method": "C:SEFW01/SA"
   },
   {
    "line": 103,
@@ -836,11 +837,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 1.227,
-   "mom": 0.015,
-   "headBp": 0.02,
-   "coreBp": 0.02,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -0.639,
+   "headBp": -0.78,
+   "coreBp": -0.88,
+   "how": "CPI",
+   "method": "C:SAA2/SA"
   },
   {
    "line": 107,
@@ -848,11 +849,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.75,
-   "mom": 0.214,
-   "headBp": 0.16,
-   "coreBp": 0.18,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -0.073,
+   "headBp": -0.05,
+   "coreBp": -0.06,
+   "how": "CPI",
+   "method": "C:SAA1/SA"
   },
   {
    "line": 108,
@@ -860,11 +861,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.134,
-   "mom": -0.276,
-   "headBp": -0.04,
+   "mom": -0.237,
+   "headBp": -0.03,
    "coreBp": -0.04,
-   "how": "own history",
-   "method": "avg6"
+   "how": "CPI",
+   "method": "C:SEAF/SA"
   },
   {
    "line": 110,
@@ -872,11 +873,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.014,
-   "mom": -0.137,
+   "mom": -0.093,
    "headBp": 0,
    "coreBp": 0,
-   "how": "own history",
-   "method": "avg24"
+   "how": "CPI",
+   "method": "C:SERE02/SA+w"
   },
   {
    "line": 111,
@@ -896,11 +897,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.582,
-   "mom": 0.279,
-   "headBp": 0.16,
-   "coreBp": 0.18,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 1.041,
+   "headBp": 0.61,
+   "coreBp": 0.68,
+   "how": "CPI",
+   "method": "C:SEAE/SA+w"
   },
   {
    "line": 115,
@@ -908,11 +909,11 @@
    "group": "Energy",
    "core": false,
    "weight": 2.225,
-   "mom": 2.792,
-   "headBp": 6.21,
+   "mom": 0.85,
+   "headBp": 1.89,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg12"
+   "how": "CPI",
+   "method": "C:SETB01/SA+w"
   },
   {
    "line": 116,
@@ -920,11 +921,11 @@
    "group": "Energy",
    "core": false,
    "weight": 0.061,
-   "mom": 0.722,
-   "headBp": 0.04,
+   "mom": 0.271,
+   "headBp": 0.02,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg12"
+   "how": "CPI",
+   "method": "C:SS47021/SA"
   },
   {
    "line": 118,
@@ -932,11 +933,11 @@
    "group": "Energy",
    "core": false,
    "weight": 0.122,
-   "mom": 5.202,
-   "headBp": 0.64,
+   "mom": 2.004,
+   "headBp": 0.25,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg12"
+   "how": "CPI",
+   "method": "C:SEHE01/SA"
   },
   {
    "line": 119,
@@ -944,11 +945,11 @@
    "group": "Energy",
    "core": false,
    "weight": 0.029,
-   "mom": -0.078,
-   "headBp": 0,
+   "mom": 1.824,
+   "headBp": 0.05,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg24"
+   "how": "CPI",
+   "method": "C:SEHE02/SA"
   },
   {
    "line": 123,
@@ -956,11 +957,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 2.757,
-   "mom": -0.38,
-   "headBp": -1.05,
-   "coreBp": -1.18,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 0.319,
+   "headBp": 0.88,
+   "coreBp": 0.99,
+   "how": "CPI",
+   "method": "C:SEMF01/SA"
   },
   {
    "line": 124,
@@ -968,11 +969,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.6,
-   "mom": -0.071,
-   "headBp": -0.04,
-   "coreBp": -0.05,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 0.936,
+   "headBp": 0.56,
+   "coreBp": 0.63,
+   "how": "CPI",
+   "method": "C:SEMF02/SA"
   },
   {
    "line": 125,
@@ -980,11 +981,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.044,
-   "mom": -0.021,
-   "headBp": 0,
-   "coreBp": 0,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 1.45,
+   "headBp": 0.06,
+   "coreBp": 0.07,
+   "how": "CPI",
+   "method": "C:SEMG/SA"
   },
   {
    "line": 127,
@@ -992,11 +993,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.693,
-   "mom": 0.55,
-   "headBp": 0.38,
-   "coreBp": 0.43,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 1.833,
+   "headBp": 1.27,
+   "coreBp": 1.43,
+   "how": "CPI",
+   "method": "C:SERE01/SA"
   },
   {
    "line": 128,
@@ -1004,11 +1005,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.539,
-   "mom": -0.092,
-   "headBp": -0.05,
-   "coreBp": -0.06,
-   "how": "own history",
-   "method": "avg6"
+   "mom": 0.653,
+   "headBp": 0.35,
+   "coreBp": 0.4,
+   "how": "CPI",
+   "method": "C:SERB01/SA+w"
   },
   {
    "line": 129,
@@ -1016,11 +1017,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.388,
-   "mom": 0.301,
-   "headBp": 0.12,
-   "coreBp": 0.13,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 2.947,
+   "headBp": 1.14,
+   "coreBp": 1.29,
+   "how": "CPI",
+   "method": "C:SEHL02/SA+w"
   },
   {
    "line": 130,
@@ -1040,11 +1041,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.194,
-   "mom": 0.133,
-   "headBp": 0.03,
-   "coreBp": 0.03,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 0.534,
+   "headBp": 0.1,
+   "coreBp": 0.12,
+   "how": "CPI",
+   "method": "C:SEHN01/SA"
   },
   {
    "line": 133,
@@ -1052,11 +1053,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.292,
-   "mom": -0.183,
-   "headBp": -0.05,
-   "coreBp": -0.06,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 2.868,
+   "headBp": 0.84,
+   "coreBp": 0.94,
+   "how": "CPI",
+   "method": "C:SEHN02/SA"
   },
   {
    "line": 134,
@@ -1064,11 +1065,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.337,
-   "mom": -0.034,
-   "headBp": -0.01,
-   "coreBp": -0.01,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -0.332,
+   "headBp": -0.11,
+   "coreBp": -0.13,
+   "how": "CPI",
+   "method": "C:SEHH03/SA"
   },
   {
    "line": 135,
@@ -1076,11 +1077,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.006,
-   "mom": -0.137,
+   "mom": -0.094,
    "headBp": 0,
    "coreBp": 0,
-   "how": "own history",
-   "method": "avg24"
+   "how": "CPI",
+   "method": "C:SERE02/SA"
   },
   {
    "line": 136,
@@ -1088,11 +1089,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.104,
-   "mom": 0.219,
-   "headBp": 0.02,
-   "coreBp": 0.03,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 0.311,
+   "headBp": 0.03,
+   "coreBp": 0.04,
+   "how": "CPI",
+   "method": "C:SEHN03/SA"
   },
   {
    "line": 138,
@@ -1100,11 +1101,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.588,
-   "mom": 0.242,
-   "headBp": 0.14,
-   "coreBp": 0.16,
-   "how": "own history",
-   "method": "avg12"
+   "mom": -0.569,
+   "headBp": -0.33,
+   "coreBp": -0.38,
+   "how": "CPI",
+   "method": "C:SEGB01/SA"
   },
   {
    "line": 139,
@@ -1112,11 +1113,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.368,
-   "mom": 0.087,
-   "headBp": 0.03,
-   "coreBp": 0.04,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 1.181,
+   "headBp": 0.43,
+   "coreBp": 0.49,
+   "how": "CPI",
+   "method": "C:SEGB02/SA"
   },
   {
    "line": 140,
@@ -1124,11 +1125,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.06,
-   "mom": 0.242,
-   "headBp": 0.01,
-   "coreBp": 0.02,
-   "how": "own history",
-   "method": "avg12"
+   "mom": -0.569,
+   "headBp": -0.03,
+   "coreBp": -0.04,
+   "how": "CPI",
+   "method": "C:SEGB01/SA+w"
   },
   {
    "line": 141,
@@ -1136,11 +1137,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.491,
-   "mom": 0.541,
-   "headBp": 0.27,
-   "coreBp": 0.3,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.283,
+   "headBp": 0.14,
+   "coreBp": 0.16,
+   "how": "CPI",
+   "method": "C:SEGA/SA"
   },
   {
    "line": 143,
@@ -1148,11 +1149,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.465,
-   "mom": 0.872,
-   "headBp": 0.41,
-   "coreBp": 0.46,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 4.463,
+   "headBp": 2.08,
+   "coreBp": 2.34,
+   "how": "CPI",
+   "method": "C:SERG01/SA"
   },
   {
    "line": 144,
@@ -1160,11 +1161,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.154,
-   "mom": 0.312,
-   "headBp": 0.05,
-   "coreBp": 0.05,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 0.221,
+   "headBp": 0.03,
+   "coreBp": 0.04,
+   "how": "CPI",
+   "method": "C:SEGE/SA"
   },
   {
    "line": 147,
@@ -1208,11 +1209,11 @@
    "group": "Housing",
    "core": true,
    "weight": 0.069,
-   "mom": 0.289,
-   "headBp": 0.02,
+   "mom": 0.202,
+   "headBp": 0.01,
    "coreBp": 0.02,
-   "how": "own history",
-   "method": "avg6"
+   "how": "CPI",
+   "method": "C:SEHA/SA"
   },
   {
    "line": 159,
@@ -1220,11 +1221,11 @@
    "group": "Housing",
    "core": true,
    "weight": 3.527,
-   "mom": 0.289,
-   "headBp": 1.02,
-   "coreBp": 1.15,
-   "how": "own history",
-   "method": "avg6"
+   "mom": 0.202,
+   "headBp": 0.71,
+   "coreBp": 0.8,
+   "how": "CPI",
+   "method": "C:SEHA/SA"
   },
   {
    "line": 161,
@@ -1232,11 +1233,11 @@
    "group": "Housing",
    "core": true,
    "weight": 0.441,
-   "mom": 0.309,
+   "mom": 0.315,
    "headBp": 0.14,
-   "coreBp": 0.15,
-   "how": "own history",
-   "method": "avg6"
+   "coreBp": 0.16,
+   "how": "CPI",
+   "method": "C:SEHC/SA+w"
   },
   {
    "line": 162,
@@ -1244,11 +1245,11 @@
    "group": "Housing",
    "core": true,
    "weight": 11.416,
-   "mom": 0.309,
-   "headBp": 3.53,
-   "coreBp": 3.97,
-   "how": "own history",
-   "method": "avg6"
+   "mom": 0.316,
+   "headBp": 3.6,
+   "coreBp": 4.05,
+   "how": "CPI",
+   "method": "C:SEHC/SA+w"
   },
   {
    "line": 163,
@@ -1268,11 +1269,11 @@
    "group": "Housing",
    "core": true,
    "weight": 0.016,
-   "mom": 0.289,
+   "mom": 0.202,
    "headBp": 0,
-   "coreBp": 0.01,
-   "how": "own history",
-   "method": "avg6"
+   "coreBp": 0,
+   "how": "CPI",
+   "method": "C:SEHA/SA"
   },
   {
    "line": 167,
@@ -1280,11 +1281,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.464,
-   "mom": 0.379,
-   "headBp": 0.18,
-   "coreBp": 0.2,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.273,
+   "headBp": 0.13,
+   "coreBp": 0.14,
+   "how": "CPI",
+   "method": "C:SEHG01/SA+w"
   },
   {
    "line": 168,
@@ -1292,11 +1293,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.195,
-   "mom": 0.426,
-   "headBp": 0.08,
-   "coreBp": 0.09,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 1.341,
+   "headBp": 0.26,
+   "coreBp": 0.29,
+   "how": "CPI",
+   "method": "C:SEHG02/SA"
   },
   {
    "line": 170,
@@ -1304,11 +1305,11 @@
    "group": "Energy",
    "core": false,
    "weight": 1.335,
-   "mom": 0.389,
-   "headBp": 0.52,
+   "mom": 0.944,
+   "headBp": 1.26,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg24"
+   "how": "CPI",
+   "method": "C:SEHF01/SA+w"
   },
   {
    "line": 171,
@@ -1316,11 +1317,11 @@
    "group": "Energy",
    "core": false,
    "weight": 0.344,
-   "mom": -0.262,
-   "headBp": -0.09,
+   "mom": -0.76,
+   "headBp": -0.26,
    "coreBp": null,
-   "how": "own history",
-   "method": "avg3"
+   "how": "CPI",
+   "method": "C:SEHF02/SA"
   },
   {
    "line": 174,
@@ -1340,11 +1341,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.933,
-   "mom": 0.49,
-   "headBp": 0.46,
-   "coreBp": 0.51,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 0.823,
+   "headBp": 0.77,
+   "coreBp": 0.86,
+   "how": "CPI",
+   "method": "C:SEMC02/SA"
   },
   {
    "line": 177,
@@ -1460,11 +1461,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 1.353,
-   "mom": 0.473,
-   "headBp": 0.64,
-   "coreBp": 0.72,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 0.618,
+   "headBp": 0.84,
+   "coreBp": 0.94,
+   "how": "CPI",
+   "method": "C:SETD/SA"
   },
   {
    "line": 195,
@@ -1472,11 +1473,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.084,
-   "mom": 0.054,
+   "mom": 0.01,
    "headBp": 0,
-   "coreBp": 0.01,
-   "how": "own history",
-   "method": "avg6"
+   "coreBp": 0,
+   "how": "CPI",
+   "method": "C:SETA03/SA"
   },
   {
    "line": 196,
@@ -1484,11 +1485,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.178,
-   "mom": 0.054,
-   "headBp": 0.01,
-   "coreBp": 0.01,
-   "how": "own history",
-   "method": "avg6"
+   "mom": 0.01,
+   "headBp": 0,
+   "coreBp": 0,
+   "how": "CPI",
+   "method": "C:SETA03/SA"
   },
   {
    "line": 197,
@@ -1496,11 +1497,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.152,
-   "mom": 0.786,
-   "headBp": 0.12,
-   "coreBp": 0.13,
-   "how": "own history",
-   "method": "avg12"
+   "mom": -5.705,
+   "headBp": -0.87,
+   "coreBp": -0.98,
+   "how": "CPI",
+   "method": "C:SETA04/SA"
   },
   {
    "line": 198,
@@ -1520,11 +1521,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.007,
-   "mom": -0.132,
-   "headBp": 0,
-   "coreBp": 0,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 1.406,
+   "headBp": 0.01,
+   "coreBp": 0.01,
+   "how": "CPI",
+   "method": "C:SETG02/SA"
   },
   {
    "line": 203,
@@ -1532,11 +1533,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.006,
-   "mom": -0.132,
-   "headBp": 0,
-   "coreBp": 0,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 1.407,
+   "headBp": 0.01,
+   "coreBp": 0.01,
+   "how": "CPI",
+   "method": "C:SETG02/SA+w"
   },
   {
    "line": 204,
@@ -1544,11 +1545,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.213,
-   "mom": 0.775,
-   "headBp": 0.16,
-   "coreBp": 0.19,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 6.627,
+   "headBp": 1.41,
+   "coreBp": 1.59,
+   "how": "CPI",
+   "method": "C:SETG03/SA"
   },
   {
    "line": 205,
@@ -1568,11 +1569,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.192,
-   "mom": -0.132,
-   "headBp": -0.03,
-   "coreBp": -0.03,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 1.406,
+   "headBp": 0.27,
+   "coreBp": 0.3,
+   "how": "CPI",
+   "method": "C:SETG02/SA"
   },
   {
    "line": 207,
@@ -1592,11 +1593,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.036,
-   "mom": -0.132,
-   "headBp": 0,
-   "coreBp": -0.01,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 1.406,
+   "headBp": 0.05,
+   "coreBp": 0.06,
+   "how": "CPI",
+   "method": "C:SETG02/SA"
   },
   {
    "line": 211,
@@ -1604,11 +1605,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.392,
-   "mom": 0.207,
-   "headBp": 0.08,
-   "coreBp": 0.09,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 1.238,
+   "headBp": 0.48,
+   "coreBp": 0.55,
+   "how": "CPI",
+   "method": "C:SERF01/SA"
   },
   {
    "line": 212,
@@ -1616,11 +1617,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.424,
-   "mom": 0.267,
-   "headBp": 0.11,
-   "coreBp": 0.13,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 1.235,
+   "headBp": 0.52,
+   "coreBp": 0.59,
+   "how": "CPI",
+   "method": "C:SERF01/NSA"
   },
   {
    "line": 214,
@@ -1628,11 +1629,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.058,
-   "mom": 0.269,
+   "mom": 0.378,
    "headBp": 0.02,
    "coreBp": 0.02,
-   "how": "own history",
-   "method": "avg24"
+   "how": "CPI",
+   "method": "C:SS62031/SA"
   },
   {
    "line": 215,
@@ -1640,11 +1641,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.305,
-   "mom": 0.267,
-   "headBp": 0.08,
-   "coreBp": 0.09,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.378,
+   "headBp": 0.12,
+   "coreBp": 0.13,
+   "how": "CPI",
+   "method": "C:SS62031/SA"
   },
   {
    "line": 216,
@@ -1676,11 +1677,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.305,
-   "mom": 0.23,
-   "headBp": 0.07,
-   "coreBp": 0.08,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.672,
+   "headBp": 0.2,
+   "coreBp": 0.23,
+   "how": "CPI",
+   "method": "C:SERA02/SA"
   },
   {
    "line": 220,
@@ -1688,11 +1689,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.006,
-   "mom": -0.163,
-   "headBp": 0,
-   "coreBp": 0,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 2.048,
+   "headBp": 0.01,
+   "coreBp": 0.01,
+   "how": "CPI",
+   "method": "C:SERD02/SA"
   },
   {
    "line": 221,
@@ -1700,11 +1701,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.053,
-   "mom": 0.035,
-   "headBp": 0,
-   "coreBp": 0,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 2.048,
+   "headBp": 0.11,
+   "coreBp": 0.12,
+   "how": "CPI",
+   "method": "C:SERD02/SA"
   },
   {
    "line": 222,
@@ -1712,11 +1713,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.053,
-   "mom": 0.296,
-   "headBp": 0.02,
-   "coreBp": 0.02,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 0.651,
+   "headBp": 0.03,
+   "coreBp": 0.04,
+   "how": "CPI",
+   "method": "C:SERA02/NSA+w"
   },
   {
    "line": 224,
@@ -1724,11 +1725,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.319,
-   "mom": 0.855,
-   "headBp": 0.27,
-   "coreBp": 0.31,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -0.228,
+   "headBp": -0.07,
+   "coreBp": -0.08,
+   "how": "CPI",
+   "method": "C:SERA04/SA"
   },
   {
    "line": 225,
@@ -1736,11 +1737,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.056,
-   "mom": 0.438,
+   "mom": 0.32,
    "headBp": 0.02,
-   "coreBp": 0.03,
-   "how": "own history",
-   "method": "avg24"
+   "coreBp": 0.02,
+   "how": "CPI",
+   "method": "C:SERA06/SA"
   },
   {
    "line": 227,
@@ -1784,11 +1785,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.364,
-   "mom": 0.256,
-   "headBp": 0.09,
-   "coreBp": 0.11,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 0.531,
+   "headBp": 0.19,
+   "coreBp": 0.22,
+   "how": "CPI",
+   "method": "C:SERB02/SA+w"
   },
   {
    "line": 232,
@@ -1820,11 +1821,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.033,
-   "mom": 0.309,
-   "headBp": 0.01,
-   "coreBp": 0.01,
-   "how": "own history",
-   "method": "avg12"
+   "mom": -0.023,
+   "headBp": 0,
+   "coreBp": 0,
+   "how": "CPI",
+   "method": "C:SEFV03/SA"
   },
   {
    "line": 240,
@@ -1844,11 +1845,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 2.646,
-   "mom": 0.194,
-   "headBp": 0.51,
-   "coreBp": 0.58,
-   "how": "own history",
-   "method": "avg3"
+   "mom": 0.445,
+   "headBp": 1.18,
+   "coreBp": 1.32,
+   "how": "CPI",
+   "method": "C:SEFV02/SA"
   },
   {
    "line": 243,
@@ -1856,11 +1857,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 2.397,
-   "mom": 0.289,
-   "headBp": 0.69,
-   "coreBp": 0.78,
-   "how": "own history",
-   "method": "avg6"
+   "mom": 0.655,
+   "headBp": 1.57,
+   "coreBp": 1.77,
+   "how": "CPI",
+   "method": "C:SEFV01/SA"
   },
   {
    "line": 244,
@@ -1868,11 +1869,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.039,
-   "mom": 0.289,
-   "headBp": 0.01,
-   "coreBp": 0.01,
-   "how": "own history",
-   "method": "avg6"
+   "mom": 0.655,
+   "headBp": 0.03,
+   "coreBp": 0.03,
+   "how": "CPI",
+   "method": "C:SEFV01/SA"
   },
   {
    "line": 245,
@@ -1880,11 +1881,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.823,
-   "mom": 0.216,
+   "mom": 0.223,
    "headBp": 0.18,
-   "coreBp": 0.2,
-   "how": "own history",
-   "method": "avg12"
+   "coreBp": 0.21,
+   "how": "CPI",
+   "method": "C:SEFX/SA"
   },
   {
    "line": 247,
@@ -1892,11 +1893,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.16,
-   "mom": 0.289,
-   "headBp": 0.05,
-   "coreBp": 0.05,
-   "how": "own history",
-   "method": "avg6"
+   "mom": 0.655,
+   "headBp": 0.1,
+   "coreBp": 0.12,
+   "how": "CPI",
+   "method": "C:SEFV01/SA"
   },
   {
    "line": 248,
@@ -1904,11 +1905,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.012,
-   "mom": 0.289,
-   "headBp": 0,
-   "coreBp": 0,
-   "how": "own history",
-   "method": "avg6"
+   "mom": 0.655,
+   "headBp": 0.01,
+   "coreBp": 0.01,
+   "how": "CPI",
+   "method": "C:SEFV01/SA"
   },
   {
    "line": 250,
@@ -1916,11 +1917,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.734,
-   "mom": 0.165,
-   "headBp": 0.12,
-   "coreBp": 0.14,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.706,
+   "headBp": 0.52,
+   "coreBp": 0.58,
+   "how": "CPI",
+   "method": "C:SEHB02/SA"
   },
   {
    "line": 251,
@@ -1928,11 +1929,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.22,
-   "mom": 0.283,
-   "headBp": 0.06,
-   "coreBp": 0.07,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 0.312,
+   "headBp": 0.07,
+   "coreBp": 0.08,
+   "how": "CPI",
+   "method": "C:SEHB01/SA"
   },
   {
    "line": 255,
@@ -1976,11 +1977,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.672,
-   "mom": 0.071,
-   "headBp": 0.05,
-   "coreBp": 0.05,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0,
+   "headBp": 0,
+   "coreBp": 0,
+   "how": "CPI",
+   "method": "C:SS68021/SA"
   },
   {
    "line": 262,
@@ -2144,11 +2145,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.03,
-   "mom": 0.148,
-   "headBp": 0,
-   "coreBp": 0.01,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -0.399,
+   "headBp": -0.01,
+   "coreBp": -0.01,
+   "how": "CPI",
+   "method": "C:SEED04/SA+w"
   },
   {
    "line": 284,
@@ -2156,11 +2157,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.02,
-   "mom": 0.148,
-   "headBp": 0,
-   "coreBp": 0,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -0.4,
+   "headBp": -0.01,
+   "coreBp": -0.01,
+   "how": "CPI",
+   "method": "C:SEED04/SA+w"
   },
   {
    "line": 285,
@@ -2168,11 +2169,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.798,
-   "mom": 0.704,
-   "headBp": 0.56,
-   "coreBp": 0.63,
-   "how": "own history",
-   "method": "avg6"
+   "mom": -0.162,
+   "headBp": -0.13,
+   "coreBp": -0.15,
+   "how": "CPI",
+   "method": "C:SEED03/SA"
   },
   {
    "line": 287,
@@ -2180,11 +2181,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.02,
-   "mom": 0.711,
-   "headBp": 0.01,
-   "coreBp": 0.02,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 1.697,
+   "headBp": 0.03,
+   "coreBp": 0.04,
+   "how": "CPI",
+   "method": "C:SEEC01/SA"
   },
   {
    "line": 288,
@@ -2192,11 +2193,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.051,
-   "mom": 1.59,
-   "headBp": 0.08,
-   "coreBp": 0.09,
-   "how": "own history",
-   "method": "avg6"
+   "mom": 1.786,
+   "headBp": 0.09,
+   "coreBp": 0.1,
+   "how": "CPI",
+   "method": "C:SEEC02/SA"
   },
   {
    "line": 289,
@@ -2204,11 +2205,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.547,
-   "mom": 0.031,
-   "headBp": 0.02,
-   "coreBp": 0.02,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -0.542,
+   "headBp": -0.3,
+   "coreBp": -0.33,
+   "how": "CPI",
+   "method": "C:SEEE03/SA"
   },
   {
    "line": 292,
@@ -2216,11 +2217,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.547,
-   "mom": 0.223,
-   "headBp": 0.12,
-   "coreBp": 0.14,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.097,
+   "headBp": 0.05,
+   "coreBp": 0.06,
+   "how": "CPI",
+   "method": "C:SEEB01/SA"
   },
   {
    "line": 293,
@@ -2228,11 +2229,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.4,
-   "mom": 0.223,
-   "headBp": 0.09,
-   "coreBp": 0.1,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.097,
+   "headBp": 0.04,
+   "coreBp": 0.04,
+   "how": "CPI",
+   "method": "C:SEEB01/SA"
   },
   {
    "line": 295,
@@ -2240,11 +2241,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.216,
-   "mom": 0.336,
-   "headBp": 0.07,
-   "coreBp": 0.08,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.724,
+   "headBp": 0.16,
+   "coreBp": 0.18,
+   "how": "CPI",
+   "method": "C:SEEB02/SA"
   },
   {
    "line": 296,
@@ -2252,11 +2253,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.1,
-   "mom": 0.342,
-   "headBp": 0.03,
-   "coreBp": 0.04,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.427,
+   "headBp": 0.04,
+   "coreBp": 0.05,
+   "how": "CPI",
+   "method": "C:SEEB03/SA"
   },
   {
    "line": 297,
@@ -2264,11 +2265,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.409,
-   "mom": 0.15,
-   "headBp": 0.06,
-   "coreBp": 0.07,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -0.037,
+   "headBp": -0.02,
+   "coreBp": -0.02,
+   "how": "CPI",
+   "method": "C:SEEB04/SA"
   },
   {
    "line": 299,
@@ -2348,11 +2349,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.146,
-   "mom": 0.232,
-   "headBp": 0.03,
-   "coreBp": 0.04,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 0.163,
+   "headBp": 0.02,
+   "coreBp": 0.03,
+   "how": "CPI",
+   "method": "C:SEGD02/SA"
   },
   {
    "line": 309,
@@ -2360,11 +2361,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.473,
-   "mom": 0.341,
-   "headBp": 0.16,
-   "coreBp": 0.18,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.224,
+   "headBp": 0.11,
+   "coreBp": 0.12,
+   "how": "CPI",
+   "method": "C:SEGC01/SA"
   },
   {
    "line": 310,
@@ -2372,11 +2373,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.599,
-   "mom": 0.526,
-   "headBp": 0.31,
-   "coreBp": 0.35,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 0.224,
+   "headBp": 0.13,
+   "coreBp": 0.15,
+   "how": "CPI",
+   "method": "C:SEGC/SA"
   },
   {
    "line": 312,
@@ -2384,11 +2385,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.07,
-   "mom": 0.435,
-   "headBp": 0.03,
-   "coreBp": 0.03,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 0.096,
+   "headBp": 0.01,
+   "coreBp": 0.01,
+   "how": "CPI",
+   "method": "C:SEGD03/SA"
   },
   {
    "line": 313,
@@ -2396,11 +2397,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.032,
-   "mom": 0.526,
-   "headBp": 0.02,
-   "coreBp": 0.02,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 1.888,
+   "headBp": 0.06,
+   "coreBp": 0.07,
+   "how": "CPI",
+   "method": "C:SEGD04/SA"
   },
   {
    "line": 314,
@@ -2408,11 +2409,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.002,
-   "mom": 0.526,
+   "mom": 1.888,
    "headBp": 0,
    "coreBp": 0,
-   "how": "own history",
-   "method": "avg12"
+   "how": "CPI",
+   "method": "C:SEGD04/SA"
   },
   {
    "line": 316,
@@ -2420,11 +2421,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.316,
-   "mom": 0.342,
-   "headBp": 0.11,
-   "coreBp": 0.12,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.427,
+   "headBp": 0.14,
+   "coreBp": 0.15,
+   "how": "CPI",
+   "method": "C:SEEB03/SA"
   },
   {
    "line": 318,
@@ -2552,11 +2553,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.109,
-   "mom": -0.16,
-   "headBp": -0.02,
-   "coreBp": -0.02,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 3.048,
+   "headBp": 0.33,
+   "coreBp": 0.37,
+   "how": "CPI",
+   "method": "C:SEHP03/SA"
   },
   {
    "line": 330,
@@ -2588,11 +2589,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.201,
-   "mom": 0.617,
-   "headBp": 0.12,
-   "coreBp": 0.14,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -1.814,
+   "headBp": -0.36,
+   "coreBp": -0.41,
+   "how": "CPI",
+   "method": "C:SEHP02/SA"
   },
   {
    "line": 335,
@@ -2980,10 +2981,10 @@
   ]
  },
  "nextReleases": {
-  "CPI": "2026-11-10",
+  "CPI": "2026-12-10",
   "PPI": "2026-11-13",
   "PCE": "2026-11-25"
  },
  "warnings": [],
- "updated": "2026-11-09T15:24:55.202Z"
+ "updated": "2026-11-10T13:39:14.529Z"
 }
