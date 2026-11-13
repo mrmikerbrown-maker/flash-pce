@@ -2986,6 +2986,11 @@
   "PPI": "2026-12-15",
   "PCE": "2026-11-25"
  },
- "warnings": [],
- "updated": "2026-11-13T13:35:59.451Z"
+ "warnings": [
+  "BLS CPI SS53031 has not updated since 2026-04 (renamed or discontinued?)"
+ ],
+ "updated": "2026-11-13T14:24:02.848Z",
+ "newWarnings": [
+  "BLS CPI SS53031 has not updated since 2026-04 (renamed or discontinued?)"
+ ]
 }

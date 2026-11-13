@@ -28,6 +28,9 @@ def main():
               else 'PPI in, CPI to come' if d['ppiIn'] else 'no CPI or PPI yet')
     c, h = d['core'], d['headline']
     subject = f"Flash PCE {month(d['target'])}: core {c['mom']:.2f}%, headline {h['mom']:.2f}% ({status.lower()})"
+    warns = d.get('newWarnings') or []
+    if warns:
+        subject = '[Check data] ' + subject
 
     groups = ['Core services ex housing', 'Housing', 'Core goods', 'Food', 'Energy']
     grows = ''.join(f"<tr><td style='padding:3px 12px 3px 0'>{g}</td><td align='right'>{sgn(d['groups'].get(g))}</td></tr>"
@@ -36,9 +39,12 @@ def main():
     lrows = ''.join(f"<tr><td style='padding:3px 12px 3px 0'>{l['name']}</td><td align='right'>{l['mom']:.2f}</td>"
                     f"<td align='right' style='padding-left:12px'>{sgn(l['headBp'])}</td></tr>" for l in top)
     st = d['backtest']['stats']
+    warn_html = ('<div style="border:1px solid #B23A48;background:#FBEFF1;color:#7A1F2C;padding:10px 12px;margin:0 0 14px;font-size:14px">'
+                 '<b>Data check needed.</b> The affected lines are using a fallback until this is fixed:<br>' + '<br>'.join(warns) + '</div>') if warns else ''
     html = f"""<div style="font-family:Arial,sans-serif;color:#0E1620;max-width:560px">
 <p style="font-family:Georgia,serif;font-size:22px;color:#071B35;margin:0 0 4px">Flash PCE: {month(d['target'])}</p>
 <p style="color:#59616A;margin:0 0 14px">{status} &middot; {inputs}</p>
+{warn_html}
 <table style="border-collapse:collapse;font-size:15px;margin-bottom:14px">
 <tr><td></td><td style="padding:0 12px;color:#59616A">m/m</td><td style="padding:0 12px;color:#59616A">annualised</td><td style="padding:0 12px;color:#59616A">implied y/y</td></tr>
 <tr><td><b>Core PCE</b></td><td style="padding:2px 12px"><b>{c['mom']:.2f}%</b></td><td style="padding:2px 12px">{c['ann']:.1f}%</td><td style="padding:2px 12px">{c['yoy']:.2f}%</td></tr>

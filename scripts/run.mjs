@@ -68,6 +68,29 @@ async function fetchBls(ids, y0, y1, key) {
   return { data, failed };
 }
 
+/** Flag BLS series that have stopped updating (renamed or discontinued) in the last year, judged against
+ *  the newest month among series of the same family. CPI items count as missing only if both the seasonally
+ *  adjusted and unadjusted versions return nothing (many items are only published unadjusted). Items that
+ *  died long ago are ignored: the per-line selection has already moved off them. */
+function staleSeries(ids, data) {
+  const fam = id => id.startsWith('CU') ? 'CPI' : id.startsWith('CES') ? 'earnings' : 'PPI';
+  const lastOf = id => { const ms = Object.keys(data[id] || {}).sort(); return ms.length ? ms[ms.length - 1] : null; };
+  const newest = {};
+  for (const id of ids) { const l = lastOf(id); if (l && (!newest[fam(id)] || l > newest[fam(id)])) newest[fam(id)] = l; }
+  const out = [], seen = new Set();
+  for (const id of ids) {
+    const item = id.startsWith('CU') ? 'CPI ' + id.slice(8) : fam(id) + ' ' + id;
+    if (seen.has(item)) continue;
+    const pair = id.startsWith('CU') ? ids.filter(x => x.startsWith('CU') && x.slice(8) === id.slice(8)) : [id];
+    const last = pair.map(lastOf).filter(Boolean).sort().pop() || null, top = newest[fam(id)];
+    seen.add(item);
+    if (!last) out.push(`BLS ${item} returned no data (renamed or discontinued?)`);
+    else if (top && last < M.ymAdd_(top, -2) && last >= M.ymAdd_(top, -12))
+      out.push(`BLS ${item} has not updated since ${last} (renamed or discontinued?)`);
+  }
+  return out;
+}
+
 const r = (v, d) => (typeof v === 'number' && isFinite(v)) ? Math.round(v * 10 ** d) / 10 ** d : null;
 
 function buildPayload(res, cal, failed) {
@@ -158,13 +181,14 @@ async function main() {
     bls = await fetchBls(M.blsIds_(), y0, y1, env.BLS_API_KEY);
   }
   const res = M.runModel_(price, nom, bls.data);
-  const payload = buildPayload(res, cal, bls.failed);
+  const payload = buildPayload(res, cal, [...bls.failed, ...staleSeries(M.blsIds_(), bls.data)]);
 
   const dataPath = path.join(DOCS, 'data.json'), recPath = path.join(DOCS, 'record.json');
   const old = fs.existsSync(dataPath) ? JSON.parse(fs.readFileSync(dataPath, 'utf8')) : null;
-  const strip = o => { if (!o) return null; const c = { ...o }; delete c.updated; delete c.nextReleases; return JSON.stringify(c); };
+  const strip = o => { if (!o) return null; const c = { ...o }; delete c.updated; delete c.nextReleases; delete c.newWarnings; return JSON.stringify(c); };
   if (old && strip(old) === strip(payload) && !force) { console.log('No change in the estimate; leaving the page as it is.'); return; }
   payload.updated = new Date().toISOString();
+  payload.newWarnings = payload.warnings.filter(w => !((old && old.warnings) || []).includes(w));
   const record = fs.existsSync(recPath) ? JSON.parse(fs.readFileSync(recPath, 'utf8')) : {};
   fs.writeFileSync(recPath, JSON.stringify(updateRecord(record, payload, res), null, 1));
   fs.writeFileSync(dataPath, JSON.stringify(payload, null, 1));
