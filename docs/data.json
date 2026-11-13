@@ -1,30 +1,31 @@
 {
  "target": "2026-10",
  "lastPublished": "2026-09",
- "status": "provisional",
+ "status": "final",
  "cpiIn": true,
- "ppiIn": false,
+ "ppiIn": true,
  "headline": {
-  "mom": 0.366,
-  "ann": 4.48,
-  "yoy": 3.87
+  "mom": 0.35,
+  "ann": 4.29,
+  "yoy": 3.86
  },
  "core": {
-  "mom": 0.347,
-  "ann": 4.25,
-  "yoy": 3.3
+  "mom": 0.33,
+  "ann": 4.03,
+  "yoy": 3.28
  },
  "coverage": {
   "CPI": 67,
-  "own history": 28.3,
+  "own history": 12.3,
+  "PPI": 15.9,
   "earnings": 4.7
  },
  "groups": {
-  "Core goods": 8.2,
+  "Core goods": 8,
   "Food": 2.5,
   "Energy": 3.2,
   "Housing": 4.5,
-  "Core services ex housing": 18.4
+  "Core services ex housing": 17.1
  },
  "lines": [
   {
@@ -369,11 +370,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 1.116,
-   "mom": -1.53,
-   "headBp": -1.71,
-   "coreBp": -1.92,
+   "mom": -1.766,
+   "headBp": -1.97,
+   "coreBp": -2.22,
    "how": "CPI",
-   "method": "C:SEEE02/SA"
+   "method": "C:SEEE02|P:PCU513210513210/SA"
   },
   {
    "line": 51,
@@ -885,11 +886,11 @@
    "group": "Core goods",
    "core": true,
    "weight": 0.002,
-   "mom": 0.212,
+   "mom": 0.205,
    "headBp": 0,
    "coreBp": 0,
-   "how": "own history",
-   "method": "avg24"
+   "how": "PPI",
+   "method": "P:WPU0381/SA"
   },
   {
    "line": 112,
@@ -1329,11 +1330,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 3.974,
-   "mom": 0.103,
-   "headBp": 0.41,
-   "coreBp": 0.46,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.047,
+   "headBp": 0.19,
+   "coreBp": 0.21,
+   "how": "PPI",
+   "method": "P:PCU621111621111/SA+w"
   },
   {
    "line": 175,
@@ -1353,11 +1354,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 1.05,
-   "mom": 0.122,
-   "headBp": 0.13,
-   "coreBp": 0.14,
-   "how": "own history",
-   "method": "avg6"
+   "mom": -0.043,
+   "headBp": -0.05,
+   "coreBp": -0.05,
+   "how": "PPI",
+   "method": "P:PCU621610621610/SA+w"
   },
   {
    "line": 178,
@@ -1365,11 +1366,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.253,
-   "mom": 0.165,
-   "headBp": 0.04,
-   "coreBp": 0.05,
-   "how": "own history",
-   "method": "avg24"
+   "mom": -0.021,
+   "headBp": -0.01,
+   "coreBp": -0.01,
+   "how": "PPI",
+   "method": "P:PCU621511621511|P:PCU621512621512/SA"
   },
   {
    "line": 180,
@@ -1401,11 +1402,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 5.326,
-   "mom": 0.264,
-   "headBp": 1.41,
-   "coreBp": 1.58,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.303,
+   "headBp": 1.62,
+   "coreBp": 1.82,
+   "how": "PPI",
+   "method": "P:PCU622---622---/SA+w"
   },
   {
    "line": 185,
@@ -1413,11 +1414,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.907,
-   "mom": 0.264,
-   "headBp": 0.24,
-   "coreBp": 0.27,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.304,
+   "headBp": 0.28,
+   "coreBp": 0.31,
+   "how": "PPI",
+   "method": "P:PCU622---622---/SA+w"
   },
   {
    "line": 186,
@@ -1425,11 +1426,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 1.616,
-   "mom": 0.264,
-   "headBp": 0.43,
-   "coreBp": 0.48,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.304,
+   "headBp": 0.49,
+   "coreBp": 0.55,
+   "how": "PPI",
+   "method": "P:PCU622---622---/SA+w"
   },
   {
    "line": 188,
@@ -1437,11 +1438,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.353,
-   "mom": 0.305,
-   "headBp": 0.11,
-   "coreBp": 0.12,
-   "how": "own history",
-   "method": "avg12"
+   "mom": -0.249,
+   "headBp": -0.09,
+   "coreBp": -0.1,
+   "how": "PPI",
+   "method": "P:PCU623110623110/SA+w"
   },
   {
    "line": 189,
@@ -1449,11 +1450,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.943,
-   "mom": 0.305,
-   "headBp": 0.29,
-   "coreBp": 0.32,
-   "how": "own history",
-   "method": "avg12"
+   "mom": -0.249,
+   "headBp": -0.23,
+   "coreBp": -0.26,
+   "how": "PPI",
+   "method": "P:PCU623110623110/SA+w"
   },
   {
    "line": 192,
@@ -1989,11 +1990,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.047,
-   "mom": 0.501,
-   "headBp": 0.02,
+   "mom": 0.613,
+   "headBp": 0.03,
    "coreBp": 0.03,
-   "how": "own history",
-   "method": "avg24"
+   "how": "PPI",
+   "method": "P:PCU5231505231501/SA"
   },
   {
    "line": 263,
@@ -2013,11 +2014,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.029,
-   "mom": 2.171,
-   "headBp": 0.06,
-   "coreBp": 0.07,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.613,
+   "headBp": 0.02,
+   "coreBp": 0.02,
+   "how": "PPI",
+   "method": "P:PCU5231505231501/SA"
   },
   {
    "line": 266,
@@ -2037,11 +2038,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.047,
-   "mom": 0.27,
-   "headBp": 0.01,
-   "coreBp": 0.01,
-   "how": "own history",
-   "method": "avg3"
+   "mom": 0.613,
+   "headBp": 0.03,
+   "coreBp": 0.03,
+   "how": "PPI",
+   "method": "P:PCU5231505231501/SA"
   },
   {
    "line": 268,
@@ -2061,11 +2062,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.128,
-   "mom": 1.292,
-   "headBp": 0.17,
-   "coreBp": 0.19,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0,
+   "headBp": 0,
+   "coreBp": 0,
+   "how": "PPI",
+   "method": "P:PCU5221105221103/SA"
   },
   {
    "line": 271,
@@ -2085,11 +2086,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 0.08,
-   "mom": 0.094,
-   "headBp": 0.01,
-   "coreBp": 0.01,
-   "how": "own history",
-   "method": "avg12"
+   "mom": 0.016,
+   "headBp": 0,
+   "coreBp": 0,
+   "how": "PPI",
+   "method": "P:PCU524126524126/SA"
   },
   {
    "line": 276,
@@ -2097,11 +2098,11 @@
    "group": "Core services ex housing",
    "core": true,
    "weight": 1.179,
-   "mom": 0.479,
-   "headBp": 0.56,
-   "coreBp": 0.64,
-   "how": "own history",
-   "method": "avg24"
+   "mom": 0.287,
+   "headBp": 0.34,
+   "coreBp": 0.38,
+   "how": "PPI",
+   "method": "P:PCU524114524114/SA+w"
   },
   {
    "line": 277,
@@ -2682,12 +2683,12 @@
  ],
  "backtest": {
   "stats": {
-   "headMae": 3.89,
-   "headRmse": 4.79,
-   "coreMae": 4.37,
-   "coreRmse": 5.58,
-   "headBias": -0.91,
-   "coreBias": -0.69
+   "headMae": 3.84,
+   "headRmse": 4.77,
+   "coreMae": 4.31,
+   "coreRmse": 5.55,
+   "headBias": -0.99,
+   "coreBias": -0.78
   },
   "months": [
    {
@@ -2934,7 +2935,7 @@
     "m": "2026-06",
     "head": -0.051,
     "aHead": -0.103,
-    "core": 0.209,
+    "core": 0.208,
     "aCore": 0.133,
     "yHead": 3.51,
     "ayHead": 3.45,
@@ -2944,21 +2945,21 @@
    },
    {
     "m": "2026-07",
-    "head": 0.088,
+    "head": 0.075,
     "aHead": 0.062,
-    "core": 0.166,
+    "core": 0.151,
     "aCore": 0.138,
-    "yHead": 3.4,
+    "yHead": 3.39,
     "ayHead": 3.37,
-    "yCore": 3.02,
+    "yCore": 3.01,
     "ayCore": 3,
     "excluded": false
    },
    {
     "m": "2026-08",
-    "head": 0.327,
+    "head": 0.326,
     "aHead": 0.323,
-    "core": 0.275,
+    "core": 0.274,
     "aCore": 0.262,
     "yHead": 3.45,
     "ayHead": 3.44,
@@ -2968,13 +2969,13 @@
    },
    {
     "m": "2026-09",
-    "head": 0.469,
+    "head": 0.466,
     "aHead": 0.491,
-    "core": 0.301,
+    "core": 0.298,
     "aCore": 0.317,
-    "yHead": 3.63,
+    "yHead": 3.62,
     "ayHead": 3.65,
-    "yCore": 3.11,
+    "yCore": 3.1,
     "ayCore": 3.12,
     "excluded": false
    }
@@ -2982,9 +2983,9 @@
  },
  "nextReleases": {
   "CPI": "2026-12-10",
-  "PPI": "2026-11-13",
+  "PPI": "2026-12-15",
   "PCE": "2026-11-25"
  },
  "warnings": [],
- "updated": "2026-11-10T13:39:14.529Z"
+ "updated": "2026-11-13T13:35:59.451Z"
 }
