@@ -236,8 +236,7 @@ function render(d, rec) {
   document.getElementById('linesTable').innerHTML = head + sorted.slice(0, 15).map(row).join('');
   document.getElementById('allTable').innerHTML = head + d.lines.map(row).join('');
 
-  document.getElementById('warn').textContent = '';
-  if (d.warnings && d.warnings.length) document.getElementById('warn').textContent = 'Data notes: ' + d.warnings.join(' | ');
+  // data warnings go to Mike's email only, not the public page
   document.getElementById('foot').innerHTML = 'Data: BEA, BLS. Method: Chicago Fed Letter 529 (Sep 2026). Last BEA release covers ' + mName(d.lastPublished) + '.';
 }
 
