@@ -159,10 +159,17 @@ const dShort = s => { if (!s) return '–'; const d = new Date(s + 'T12:00:00Z')
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const tidy = s => s.replace(/\s*\((?:\d+|parts? of[^)]*|\d+ and \d+)\)\s*$/i, '').replace(/\s*\(\d+(?:,? and \d+)*\)$/, '');
 
-Promise.all([fetch('data.json', { cache: 'no-store' }).then(r => r.json()),
-             fetch('record.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : {}).catch(() => ({}))])
-  .then(([d, rec]) => render(d, rec))
-  .catch(e => { document.getElementById('sub').textContent = 'Could not load the latest estimate.'; console.error(e); });
+// Load now, then check for a new estimate every minute while the tab is open (and on returning to it).
+let shown = null;
+function load(first) {
+  return Promise.all([fetch('data.json', { cache: 'no-store' }).then(r => r.json()),
+                      fetch('record.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : {}).catch(() => ({}))])
+    .then(([d, rec]) => { if (d.updated !== shown) { shown = d.updated; render(d, rec); } })
+    .catch(e => { if (first) document.getElementById('sub').textContent = 'Could not load the latest estimate.'; console.error(e); });
+}
+load(true);
+setInterval(() => { if (!document.hidden) load(); }, 60000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) load(); });
 
 function render(d, rec) {
   const upd = d.updated ? new Date(d.updated) : null;
@@ -229,6 +236,7 @@ function render(d, rec) {
   document.getElementById('linesTable').innerHTML = head + sorted.slice(0, 15).map(row).join('');
   document.getElementById('allTable').innerHTML = head + d.lines.map(row).join('');
 
+  document.getElementById('warn').textContent = '';
   if (d.warnings && d.warnings.length) document.getElementById('warn').textContent = 'Data notes: ' + d.warnings.join(' | ');
   document.getElementById('foot').innerHTML = 'Data: BEA, BLS. Method: Chicago Fed Letter 529 (Sep 2026). Last BEA release covers ' + mName(d.lastPublished) + '.';
 }

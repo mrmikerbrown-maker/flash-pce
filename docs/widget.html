@@ -42,7 +42,10 @@
 </div>
 <script>
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+let shown = null;
+function load(first) {
 fetch('data.json', { cache: 'no-store' }).then(r => r.json()).then(d => {
+  if (d.updated === shown) return; shown = d.updated;
   const b = document.getElementById('badge');
   b.textContent = { final: 'Final', provisional: 'Provisional', waiting: 'Waiting for data' }[d.status];
   b.className = 'badge ' + d.status;
@@ -55,7 +58,11 @@ fetch('data.json', { cache: 'no-store' }).then(r => r.json()).then(d => {
   put('core', 'core'); put('headline', 'head');
   if (d.updated) document.getElementById('upd').textContent = 'Updated ' + new Date(d.updated).toLocaleString('en-GB',
     { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/London' }) + ' UK';
-}).catch(() => { document.getElementById('month').textContent = 'Could not load the latest estimate.'; });
+}).catch(() => { if (first) document.getElementById('month').textContent = 'Could not load the latest estimate.'; });
+}
+load(true);
+setInterval(() => { if (!document.hidden) load(); }, 60000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) load(); });
 </script>
 </body>
 </html>
