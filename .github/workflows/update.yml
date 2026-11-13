@@ -40,6 +40,7 @@ jobs:
         if: github.event_name == 'workflow_dispatch' && inputs.morning
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          FORCE: ${{ inputs.force && '1' || '0' }}
         run: node scripts/morning.mjs
       - name: PCE-morning email
         if: steps.morning.outputs.send == 'true'
