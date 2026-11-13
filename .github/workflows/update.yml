@@ -14,6 +14,10 @@ on:
         description: 'Run even if today is not a release day'
         type: boolean
         default: true
+      morning:
+        description: 'PCE-morning email only (sends just on PCE release days)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -31,8 +35,22 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: PCE-morning check
+        id: morning
+        if: github.event_name == 'workflow_dispatch' && inputs.morning
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: node scripts/morning.mjs
+      - name: PCE-morning email
+        if: steps.morning.outputs.send == 'true'
+        env:
+          SENDER: ${{ secrets.SENDER }}
+          RECIPIENT: ${{ secrets.RECIPIENT }}
+          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
+        run: python3 scripts/send_email.py --morning
       - name: Run nowcast
         id: run
+        if: "!(github.event_name == 'workflow_dispatch' && inputs.morning)"
         env:
           BEA_API_KEY: ${{ secrets.BEA_API_KEY }}
           BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
@@ -41,6 +59,7 @@ jobs:
         run: node scripts/run.mjs
       - name: Publish if changed
         id: publish
+        if: steps.run.outcome == 'success'
         run: |
           if [ -n "$(git status --porcelain docs)" ]; then
             git config user.name "flash-pce-bot"
