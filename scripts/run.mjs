@@ -145,11 +145,13 @@ function buildPayload(res, cal, failed) {
 function updateRecord(record, payload, res) {
   const rec = record[payload.target] || (record[payload.target] = {});
   rec.head = payload.headline.mom; rec.core = payload.core.mom; rec.status = payload.status;
+  rec.yHead = payload.headline.yoy; rec.yCore = payload.core.yoy;
   rec.asOf = new Date().toISOString();
   for (const m of Object.keys(record)) {
     if (record[m].aHead == null && res.pceIdx[m] != null) {
-      record[m].aHead = r((res.pceIdx[m] / res.pceIdx[M.ymAdd_(m, -1)] - 1) * 100, 3);
-      record[m].aCore = r((res.coreIdx[m] / res.coreIdx[M.ymAdd_(m, -1)] - 1) * 100, 3);
+      const ch = (idx, k) => r((idx[m] / idx[M.ymAdd_(m, -k)] - 1) * 100, 4);
+      record[m].aHead = ch(res.pceIdx, 1); record[m].aCore = ch(res.coreIdx, 1);
+      record[m].ayHead = ch(res.pceIdx, 12); record[m].ayCore = ch(res.coreIdx, 12);
     }
   }
   return record;

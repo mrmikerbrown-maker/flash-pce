@@ -35,8 +35,8 @@
   <div class="m" id="month">&nbsp;</div>
   <div class="by">Produced by Michael Brown (<a href="https://x.com/mrmbrown" target="_blank" rel="noopener">@MrMBrown</a>)</div>
   <div class="nums">
-    <div><div class="k">Core m/m</div><div class="v" id="core">&ndash;</div><div class="s" id="coreS"></div></div>
-    <div><div class="k">Headline m/m</div><div class="v" id="head">&ndash;</div><div class="s" id="headS"></div></div>
+    <div><div class="k" id="coreL">Core m/m</div><div class="v" id="core">&ndash;</div><div class="s" id="coreS"></div></div>
+    <div><div class="k" id="headL">Headline m/m</div><div class="v" id="head">&ndash;</div><div class="s" id="headS"></div></div>
   </div>
   <div class="foot"><span id="upd"></span><span>Full detail &rarr;</span></div>
 </div>
@@ -44,8 +44,25 @@
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 let shown = null;
 function load(first) {
-fetch('data.json', { cache: 'no-store' }).then(r => r.json()).then(d => {
+Promise.all([fetch('data.json', { cache: 'no-store' }).then(r => r.json()),
+             fetch('record.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : {}).catch(() => ({}))]).then(([d, rec]) => {
   if (d.updated === shown) return; shown = d.updated;
+  // Between the official release and the next CPI: show how the last estimate did.
+  let y = +d.target.slice(0, 4), mo = +d.target.slice(5, 7) - 1; if (!mo) { mo = 12; y--; }
+  const prev = y + '-' + String(mo).padStart(2, '0'), r0 = rec[prev];
+  if (d.status === 'waiting' && r0 && r0.aCore != null) {
+    const b = document.getElementById('badge'); b.textContent = 'Out'; b.className = 'badge final';
+    document.getElementById('month').textContent = MONTHS[mo - 1] + ' ' + y + ' PCE · model vs actual';
+    document.getElementById('coreL').textContent = 'Core m/m actual'; document.getElementById('headL').textContent = 'Headline m/m actual';
+    const put = (e, a, id) => {
+      document.getElementById(id).innerHTML = a.toFixed(2) + '%';
+      document.getElementById(id + 'S').textContent = 'Model ' + e.toFixed(2) + '% · miss ' + ((e - a) * 100 >= 0 ? '+' : '') + ((e - a) * 100).toFixed(1) + 'bp';
+    };
+    put(r0.core, r0.aCore, 'core'); put(r0.head, r0.aHead, 'head');
+    document.getElementById('upd').textContent = 'Next estimate after CPI';
+    return;
+  }
+  document.getElementById('coreL').textContent = 'Core m/m'; document.getElementById('headL').textContent = 'Headline m/m';
   const b = document.getElementById('badge');
   b.textContent = { final: 'Final', provisional: 'Provisional', waiting: 'Waiting for data' }[d.status];
   b.className = 'badge ' + d.status;

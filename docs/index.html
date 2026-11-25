@@ -36,6 +36,18 @@
   .badge.waiting { color: var(--muted); border-color: var(--muted); }
   .chk { white-space: nowrap; }
   .chk b { color: var(--navy); }
+  .result { margin-top: 22px; }
+  .result h3 { margin: 0 0 4px; }
+  .rtile { background: var(--paper); border: 1px solid var(--grid); border-top: 2px solid var(--navy); padding: 16px 20px; }
+  .rtile.core { border-top-color: var(--gold); }
+  .rtile h2 { margin: 0 0 10px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--text); font-weight: bold; }
+  .rgrid { display: grid; grid-template-columns: auto 1fr 1fr 1fr; gap: 6px 18px; align-items: baseline; font-variant-numeric: tabular-nums; }
+  .rgrid .h { font-size: 12px; color: var(--text); letter-spacing: .04em; text-transform: uppercase; }
+  .rgrid .l { color: var(--text); font-size: 14px; }
+  .rgrid .v { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-variant-numeric: lining-nums tabular-nums; color: var(--navy); font-size: 30px; line-height: 1.1; }
+  .rgrid .v.m { font-size: 22px; color: var(--text); }
+  .tiles.early { margin-top: 0; }
+  .early .big { font-size: clamp(36px, 7vw, 48px); }
   .tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 22px; }
   .tile { background: var(--paper); border: 1px solid var(--grid); border-top: 2px solid var(--navy); padding: 18px 20px; }
   .tile.core { border-top-color: var(--gold); }
@@ -90,7 +102,17 @@
   <div class="rule"></div>
   <div class="status" id="status"></div>
 
-  <div class="tiles">
+  <section class="result" id="resultSec" hidden>
+    <h3 id="resultTitle"></h3>
+    <p class="note" id="resultNote"></p>
+    <div class="tiles" style="margin-top:12px">
+      <div class="rtile core"><h2>Core PCE</h2><div class="rgrid" id="resCore"></div></div>
+      <div class="rtile"><h2>Headline PCE</h2><div class="rgrid" id="resHead"></div></div>
+    </div>
+  </section>
+  <section id="earlyHead" class="early" hidden><h3 id="earlyTitle"></h3><p class="note" id="earlyNote"></p></section>
+
+  <div class="tiles" id="mainTiles">
     <div class="tile core"><h2>Core PCE, month on month</h2><div class="big" id="coreBig">&ndash;</div><div class="kv" id="coreKv"></div></div>
     <div class="tile"><h2>Headline PCE, month on month</h2><div class="big" id="headBig">&ndash;</div><div class="kv" id="headKv"></div></div>
   </div>
@@ -152,6 +174,7 @@
 <script>
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const mName = ym => MONTHS[+ym.slice(5, 7) - 1] + ' ' + ym.slice(0, 4);
+const M_prev = ym => { let y = +ym.slice(0, 4), m = +ym.slice(5, 7) - 1; if (!m) { m = 12; y--; } return y + '-' + String(m).padStart(2, '0'); };
 const mShort = ym => MONTHS[+ym.slice(5, 7) - 1].slice(0, 3) + ' ' + ym.slice(2, 4);
 const fmt = (v, d = 2) => v == null ? '–' : (+v).toFixed(d);
 const sgn = (v, d = 1) => v == null ? '–' : (v > 0 ? '+' : '') + (+v).toFixed(d);
@@ -182,6 +205,26 @@ function render(d, rec) {
     + `<span class="chk">${tick(d.cpiIn)} CPI${d.cpiIn ? '' : ' (due ' + dShort(d.nextReleases.CPI) + ')'}</span>`
     + `<span class="chk">${tick(d.ppiIn)} PPI${d.ppiIn ? '' : ' (due ' + dShort(d.nextReleases.PPI) + ')'}</span>`
     + (upd ? `<span>Updated ${upd.toLocaleString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/London' })} UK</span>` : '');
+
+  // Between the official PCE release and the next CPI: lead with how the last estimate did.
+  const lastM = Object.keys(rec).sort().filter(m => rec[m].aCore != null).pop();
+  const showResult = d.status === 'waiting' && lastM && lastM === M_prev(d.target);
+  document.getElementById('resultSec').hidden = !showResult;
+  document.getElementById('earlyHead').hidden = !showResult;
+  document.getElementById('mainTiles').classList.toggle('early', showResult);
+  if (showResult) {
+    const r0 = rec[lastM];
+    document.getElementById('resultTitle').textContent = mName(lastM) + ' PCE: model vs actual';
+    document.getElementById('resultNote').textContent = 'The final flash estimate published here before the official release, against what BEA reported';
+    const grid = (e, a, ye, ya) => '<span></span><span class="h">Model</span><span class="h">Actual</span><span class="h">Miss</span>'
+      + `<span class="l">m/m</span><span class="v">${fmt(e)}%</span><span class="v">${fmt(a)}%</span><span class="v m">${sgn((e - a) * 100)}bp</span>`
+      + (ye != null && ya != null ? `<span class="l">y/y</span><span class="v">${fmt(ye)}%</span><span class="v">${fmt(ya)}%</span><span class="v m">${sgn((ye - ya) * 100)}bp</span>` : '');
+    document.getElementById('resCore').innerHTML = grid(r0.core, r0.aCore, r0.yCore, r0.ayCore);
+    document.getElementById('resHead').innerHTML = grid(r0.head, r0.aHead, r0.yHead, r0.ayHead);
+    document.getElementById('earlyTitle').textContent = 'Early read for ' + mName(d.target);
+    document.getElementById('earlyNote').textContent = 'Before CPI and PPI are out, every line runs on its own recent trend. The real estimate starts when CPI lands on '
+      + dShort(d.nextReleases.CPI) + '.';
+  }
 
   const tile = (k, big, kv) => {
     document.getElementById(big).innerHTML = fmt(d[k].mom, 2) + '%<small>m/m</small>';
